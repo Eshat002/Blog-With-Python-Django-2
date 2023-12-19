@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.post),
- 
+    path('get-featured-posts/', views.get_featured_posts),
+
 ]

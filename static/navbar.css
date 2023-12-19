@@ -57,6 +57,12 @@
     display: none !important;
 }
 
+.logo {
+    margin-left: -40px
+}
+
+
+
 
 @media screen and (max-width: 991.20px) {
 
