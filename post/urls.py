@@ -5,5 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.post),
     path('get-featured-posts/', views.get_featured_posts),
+    path('get-most-viewed-posts/', views.get_most_viewed_posts),
+
 
 ]

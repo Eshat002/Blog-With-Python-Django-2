@@ -6,15 +6,47 @@
 {% endblock style %}
 
 
-
 {% block content %}
-<div class="first-section">
-    <div class="container-fluid p">
+<div id="first-section">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-8">2</div>
-            <div class="col-lg-4">2</div>
+            <div class="col-lg-8">
+                <h1 id="featured_post_headline"></h1>
+                <div id="featured_posts_container">
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div id="slide-container-popular">
+                    <h2 id="most-popular-headline"></h2>
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div id="swiper-wrapper" class="swiper-wrapper">
+                            <!-- Slides -->
+                            <!-- <div id="most-popular-slide" class="swiper-slide"> </div> -->
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div> -->
+
+                        <!-- If we need scrollbar -->
+                        <!-- <div class="swiper-scrollbar"></div> -->
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
 </div>
 {% endblock content %}
+
+
+
+{% block scripts %}
+
+<script src="{% static 'post.js' %}" defer></script>
+
+{% endblock scripts %}
