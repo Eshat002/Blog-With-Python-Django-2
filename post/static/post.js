@@ -3,6 +3,8 @@ const featured_posts_headline = document.getElementById("featured_post_headline"
 const slide_container_popular = document.getElementById("slide-container-popular")
 const most_popular_slide = document.getElementById("most-popular-slide")
 const most_popular_headline = document.getElementById("most-popular-headline")
+const spinner_for_featured = document.getElementById("spinner-for-featured")
+const spinner_for_most_popular = document.getElementById("spinner-for-most-popular")
 
 
 
@@ -13,10 +15,12 @@ function get_featured_posts() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
-                console.log("response", response)
+                spinner_for_featured.classList.add("d-none")
+
                 if (response) {
                     featured_posts_headline.innerHTML = "<span class='featured-span'>Featured</span>  This month"
                 }
+
                 for (const post of response.featured_posts) {
 
                     featured_posts_container.innerHTML += `<div class='single-featured-post'>  
@@ -39,11 +43,11 @@ function get_featured_posts() {
                      </span>
                        </div>
 
-                       <div class="d-flex px-2">  
+                       <div class="d-flex fe-time-container px-2">  
                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                         <path d="M6 0C2.6916 0 0 2.6916 0 6C0 9.3084 2.6916 12 6 12C9.3084 12 12 9.3084 12 6C12 2.6916 9.3084 0 6 0ZM6 10.8C3.3534 10.8 1.2 8.6466 1.2 6C1.2 3.3534 3.3534 1.2 6 1.2C8.6466 1.2 10.8 3.3534 10.8 6C10.8 8.6466 8.6466 10.8 6 10.8Z" fill="#555555"/>
                         <path d="M6.60002 3H5.40002V6.2484L7.37582 8.2242L8.22422 7.3758L6.60002 5.7516V3Z" fill="#555555"/>
-                        </svg><span class="post-details-text">  ${post.readtime}. To Read </span>
+                        </svg><span class="post-details-text">  ${post.readtime} Read </span>
                        </div>
 
                     </div>
@@ -57,7 +61,7 @@ function get_featured_posts() {
                 }
             },
             error: function (error) {
-                console.log('Error:', error);
+                console.log(':Error', error);
             }
         });
     });
@@ -82,6 +86,8 @@ function get_most_viewed_posts() {
         .then(response => response.json())
         .then(data => {
             // Replace the static items array with the received data
+            spinner_for_most_popular.classList.add("d-none")
+
             const items = data.most_viewed_posts;
             if (items) {
                 most_popular_headline.innerHTML = "<span class='popular-span'>popular</span> Posted"
@@ -128,11 +134,11 @@ function get_most_viewed_posts() {
                  </span>
                    </div>
 
-                   <div class="d-flex px-2">  
+                   <div class="d-flex px-2 mo-time-container">  
                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M6 0C2.6916 0 0 2.6916 0 6C0 9.3084 2.6916 12 6 12C9.3084 12 12 9.3084 12 6C12 2.6916 9.3084 0 6 0ZM6 10.8C3.3534 10.8 1.2 8.6466 1.2 6C1.2 3.3534 3.3534 1.2 6 1.2C8.6466 1.2 10.8 3.3534 10.8 6C10.8 8.6466 8.6466 10.8 6 10.8Z" fill="#555555"/>
                     <path d="M6.60002 3H5.40002V6.2484L7.37582 8.2242L8.22422 7.3758L6.60002 5.7516V3Z" fill="#555555"/>
-                    </svg><span class="post-details-text">  ${item.readtime}. To Read </span>
+                    </svg><span class="post-details-text">  ${item.readtime} Read </span>
                    </div>
 
                 </div>
@@ -161,3 +167,27 @@ function get_most_viewed_posts() {
 }
 
 get_most_viewed_posts()
+
+
+
+
+// function get_recent_posts() {
+//     $(document).ready(function () {
+//         $.ajax({
+//             url: '/get-recent-posts/',
+//             type: 'GET',
+//             dataType: 'json',
+//             success: function (response) {
+//                 console.log("recent_post", response)
+//             },
+
+//             error: function (error) {
+//                 console.log('Error', error);
+//             }
+
+//         })
+//     })
+// }
+
+
+// get_recent_posts()

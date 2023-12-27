@@ -11,12 +11,22 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
+                <div class="spinner-container text-center">
+                    <div id="spinner-for-featured" style="color:#00AAA1" class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <h1 id="featured_post_headline"></h1>
                 <div id="featured_posts_container">
 
                 </div>
             </div>
             <div class="col-lg-4">
+                <div class="spinner-container text-center">
+                    <div id="spinner-for-most-popular" style="color:#00AAA1" class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <div id="slide-container-popular">
                     <h2 id="most-popular-headline"></h2>
                     <div class="swiper">
@@ -41,6 +51,43 @@
         </div>
     </div>
 </div>
+
+<div class="sec-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                {% for obj in objects %}
+                {{obj.id}}
+                {% endfor %}
+                <div class="pagination">
+                    <span class="step-links">
+
+
+                        {% if objects.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ objects.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ objects.number }} of {{ objects.paginator.num_pages }}.
+                        </span>
+
+                        {% if objects.has_next %}
+                        <a href="?page={{ objects.next_page_number }}">next</a>
+                        <a href="?page={{ objects.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">3</div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
 {% endblock content %}
 
 

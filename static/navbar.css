@@ -8,7 +8,7 @@
 .custom-navbar .container-fluid {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 88%;
     /* padding: 0px 110px 0px 50px */
 }
 
@@ -24,6 +24,8 @@
 
 .custom-navbar .custom-left-items li {
     display: inline-block;
+    /* margin-left: -30px !important; */
+
 }
 
 .custom-navbar .custom-right-items li {
@@ -58,8 +60,32 @@
 }
 
 .logo {
-    margin-left: -40px
+    margin-left: -55px
 }
+
+
+@media screen and (max-width: 1600px) {
+
+    .custom-navbar .container-fluid {
+
+        width: 89%;
+        /* padding: 0px 110px 0px 50px */
+    }
+
+
+}
+
+@media screen and (max-width: 1366px) {
+
+    .custom-navbar .container-fluid {
+
+        width: 90%;
+        /* padding: 0px 110px 0px 50px */
+    }
+
+
+}
+
 
 
 
@@ -153,5 +179,8 @@
         margin-left: 20px !important
     } */
 
+    .logo {
+        width: 83px
+    }
 
 }
