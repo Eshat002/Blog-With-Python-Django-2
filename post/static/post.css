@@ -247,8 +247,20 @@
 }
 
 
+.recent-post-container {
+    display: flex;
+    flex-direction: column;
 
 
+}
+
+/* .recent-post-container> :first-child {
+    width: 25%
+}
+
+.recent-post-container> :last-child {
+    width: 75%;
+} */
 
 
 

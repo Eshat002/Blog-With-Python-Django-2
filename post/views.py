@@ -7,7 +7,25 @@ import calendar
  
 
 def post(request):
-    return render (request, 'post.html' )
+    queryset = BlogPost.objects.all()
+
+    # Number of items to display per page
+    items_per_page = 3
+    paginator = Paginator(queryset, items_per_page)
+
+    # Get the current page number from the request's GET parameters
+    page = request.GET.get('page')
+
+    try:
+        # Get the specified page
+        objects = paginator.page(page)
+    except PageNotAnInteger:
+        # If the page parameter is not an integer, show the first page
+        objects = paginator.page(1)
+    except EmptyPage:
+        # If the page is out of range (e.g., 9999), deliver the last page
+        objects = paginator.page(paginator.num_pages)
+    return render (request, 'post.html', {'objects': objects,} )
 
 
 def get_featured_posts(request):
@@ -84,25 +102,25 @@ from django.shortcuts import render
  
 
  
-def get_recent_posts(request):
-    # Retrieve all objects from your model
-    queryset = BlogPost.objects.all()
+# def get_recent_posts(request):
+#     # Retrieve all objects from your model
+#     queryset = BlogPost.objects.all()
 
-    # Number of items to display per page
-    items_per_page = 10
-    paginator = Paginator(queryset, items_per_page)
+#     # Number of items to display per page
+#     items_per_page = 10
+#     paginator = Paginator(queryset, items_per_page)
 
-    # Get the current page number from the request's GET parameters
-    page = request.GET.get('page')
+#     # Get the current page number from the request's GET parameters
+#     page = request.GET.get('page')
 
-    try:
-        # Get the specified page
-        objects = paginator.page(page)
-    except PageNotAnInteger:
-        # If the page parameter is not an integer, show the first page
-        objects = paginator.page(1)
-    except EmptyPage:
-        # If the page is out of range (e.g., 9999), deliver the last page
-        objects = paginator.page(paginator.num_pages)
+#     try:
+#         # Get the specified page
+#         objects = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If the page parameter is not an integer, show the first page
+#         objects = paginator.page(1)
+#     except EmptyPage:
+#         # If the page is out of range (e.g., 9999), deliver the last page
+#         objects = paginator.page(paginator.num_pages)
 
-    return render(request, 'post.html', {'objects': objects})
+#     return render(request, 'post.html', {'objects': objects})
