@@ -5,6 +5,7 @@ const most_popular_slide = document.getElementById("most-popular-slide")
 const most_popular_headline = document.getElementById("most-popular-headline")
 const spinner_for_featured = document.getElementById("spinner-for-featured")
 const spinner_for_most_popular = document.getElementById("spinner-for-most-popular")
+const spinner_for_recent_post = document.getElementById("spinner-for-recent-post")
 
 
 
@@ -168,7 +169,17 @@ function get_most_viewed_posts() {
 
 get_most_viewed_posts()
 
+function hideRecentPostSpinner() {
+    setTimeout(function () {
+        spinner_for_recent_post.classList.add("d-none");
+    }, 1000);
 
+
+
+
+}
+
+hideRecentPostSpinner()
 
 
 // function get_recent_posts() {

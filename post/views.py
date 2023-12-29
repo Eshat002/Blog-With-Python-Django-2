@@ -1,16 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import *
-from datetime import date,timedelta,datetime
-import calendar
 
- 
 
 def post(request):
     queryset = BlogPost.objects.all()
 
     # Number of items to display per page
-    items_per_page = 3
+    items_per_page = 8
     paginator = Paginator(queryset, items_per_page)
 
     # Get the current page number from the request's GET parameters
@@ -25,7 +22,12 @@ def post(request):
     except EmptyPage:
         # If the page is out of range (e.g., 9999), deliver the last page
         objects = paginator.page(paginator.num_pages)
-    return render (request, 'post.html', {'objects': objects,} )
+    return render (request, 'post.html', {'objects':  objects,} )
+
+ 
+
+ 
+
 
 
 def get_featured_posts(request):

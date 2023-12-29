@@ -254,6 +254,112 @@
 
 }
 
+.recent-post-title {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 37.8px */
+    text-transform: capitalize;
+    margin-bottom: 15px
+}
+
+.recent-post-author-image {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -2px;
+}
+
+
+.recent-post-details .post-details-text {
+    color: #777;
+    font-family: "Noto Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: capitalize;
+    margin-left: 5px;
+}
+
+.recent-post-date-container {
+    border-left: 1px solid #999;
+}
+
+.recent-post-time-container {
+    border-left: 1px solid #999;
+}
+
+.recent-post-content {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 13px
+        /* 22.5px */
+}
+
+.recent-post-previous-btn {
+    border-radius: 5px;
+    border: 1px solid #C4C4C4;
+    padding: 4px 20px 6px 15px;
+    text-decoration: none;
+    /* 15px */
+}
+
+.recent-post-previous-btn:hover {
+    background-color: transparent;
+    border: 1px solid #C4C4C4;
+
+}
+
+.recent-post-previous-btn .prev-span {
+    color: #666;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+
+.recent-post-next-btn {
+    border-radius: 5px;
+    /* border: 1px solid #C4C4C4; */
+    padding: 5px 20px 7px 20px;
+    /* 15px */
+    background: #00AAA1;
+    text-decoration: none;
+}
+
+.recent-post-next-btn:hover {
+    background: #00AAA1;
+}
+
+
+
+.recent-post-next-btn .next-span {
+    color: #fff;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+.recent-middle-num {
+    padding: 4px 15px 6px 15px;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+
+}
+
 /* .recent-post-container> :first-child {
     width: 25%
 }
@@ -261,6 +367,29 @@
 .recent-post-container> :last-child {
     width: 75%;
 } */
+
+.recent-post-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+    margin: 50px 0px
+}
+
+.recent-post-span {
+    color: #FFF;
+    background-color: #00AAA1;
+    padding: 0px 2px;
+}
+
+.banner {
+    border-radius: 10px;
+    background: #F2F8F7;
+}
+
 
 
 

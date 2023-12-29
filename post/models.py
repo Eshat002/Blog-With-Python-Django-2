@@ -29,6 +29,7 @@ class BlogPost(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_featured= models.BooleanField(default=False)
     views = models.PositiveIntegerField(default=0)
+    banner_after_me=models.BooleanField(default=False)
 
 
     class Meta:
