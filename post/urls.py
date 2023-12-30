@@ -6,6 +6,8 @@ urlpatterns = [
     path('', views.post),
     path('get-featured-posts/', views.get_featured_posts),
     path('get-most-viewed-posts/', views.get_most_viewed_posts),
+    path('get-top-users-with-max-post-views/', views.get_top_users_with_max_post_views),
+
     # path('get-recent-posts/', views.get_recent_posts),
 
 

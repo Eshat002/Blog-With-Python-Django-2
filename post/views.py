@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import *
+from django.db.models import F, Sum
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def post(request):
@@ -99,8 +101,7 @@ def get_most_viewed_posts(request):
     
 
 
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
+ # from django.shortcuts import render
  
 
  
@@ -126,3 +127,17 @@ from django.shortcuts import render
 #         objects = paginator.page(paginator.num_pages)
 
 #     return render(request, 'post.html', {'objects': objects})
+
+
+
+def get_top_users_with_max_post_views(request):
+  
+    top_users_with_max_views = (
+        User.objects
+        .annotate(total_views=Sum('blogpost__views'))
+        .order_by('-total_views')[:3]
+    )
+
+    serialized_data = [{'username': user.username, 'total_views': user.total_views} for user in top_users_with_max_views]
+
+    return JsonResponse({'data': serialized_data})
