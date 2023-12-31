@@ -1,4 +1,6 @@
 const top_authors_container = document.getElementById("top-authors-container")
+const top_authors_headline = document.getElementById("top-authors-headline")
+
 
 function get_top_authors() {
     $(document).ready(function () {
@@ -13,12 +15,12 @@ function get_top_authors() {
 
                     console.log("data", data)
 
-                    top_authors_container.innerHTML += `<div class='d-flex'>  
+                    top_authors_container.innerHTML += `<div style='margin-bottom:30px' class='d-flex'>  
                     <div style="width:20%" class='top-author-image-container'>
-                    <img class='img-fluid top-author-image' src="${data.author_image}" alt="author-image">
+                    <img class='top-author-image' src="${data.author_image}" alt="author-image">
                     </div>
 
-                    <div style="width:80%" class='top-author-detail-container'>
+                    <div style="width:80%" class='top-author-detail-container ms-2'>
                     <h3 class='top-author-name'> ${data.username}</h3>
                     <p class='top-author-profession'>${data.profession} </p>
                     <div class='social-container'>
