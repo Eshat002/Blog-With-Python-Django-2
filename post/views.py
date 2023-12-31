@@ -135,6 +135,7 @@ def get_top_users_with_max_post_views(request):
     )
 
     serialized_data = [{'username': user.username, 'about_me':user.profile.about_me,
+                        'profession':user.profile.profession,
                         'facebook_url':user.profile.facebook_url,
                         'twitter_url':user.profile.twitter_url,
                         'insta_url':user.profile.instagram_url,

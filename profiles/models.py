@@ -11,7 +11,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(default='avatars/avatar.png', upload_to='avatars',validators=[
                               FileExtensionValidator(['png', 'jpg', 'jpeg', 'gif'])])
-    about_me = models.CharField(max_length=100, null=True, blank=True)
+    profession = models.CharField(max_length=50, null=True, blank=True)
+    about_me = models.CharField(max_length=300, null=True, blank=True)
     facebook_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
     twitter_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
     instagram_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
