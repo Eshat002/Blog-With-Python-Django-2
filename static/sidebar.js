@@ -1,5 +1,8 @@
 const top_authors_container = document.getElementById("top-authors-container")
 const top_authors_headline = document.getElementById("top-authors-headline")
+const ad_container = document.getElementById("ad-container")
+const category_container = document.getElementById("category-container")
+
 
 
 function get_top_authors() {
@@ -10,7 +13,7 @@ function get_top_authors() {
             dataType: 'json',
             success: function (response) {
 
-                console.log("top_container", top_authors_container)
+                // console.log("top_container", top_authors_container)
                 for (const data of response.data) {
 
                     console.log("data", data)
@@ -62,3 +65,60 @@ function get_top_authors() {
 
 
 get_top_authors()
+
+
+function get_ad() {
+    $(document).ready(function () {
+        $.ajax({
+            url: '/ad/',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+
+                ad_container.innerHTML = `<div class='single-ad'>  
+                <p  class='text-end ad-sticker'>Ad</p> 
+             
+                 <h2 class='sidebar-ad-title'>${response.data.title}</h2>
+                 <p class='sidebar-ad-des'>${response.data.des} </p>
+                 <a href='${response.data.ad_url}' class='sidebar-ad-link'>Visit Us </a>
+                    </div>`;
+
+            },
+
+            error: function (error) {
+                console.log('Error', error);
+            }
+
+        })
+    })
+}
+
+get_ad()
+
+
+
+function get_all_categories() {
+    $(document).ready(function () {
+        $.ajax({
+            url: '/get-all-categories/',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                for (const category of response.categories) {
+                    // console.log("categoris", response.categories)
+                    category_container.innerHTML += `<div class='d-flex single-category mt-2 justify-content-between'>  
+                     <h3 class='category-name-count' >${category.name} </h3>
+                     <h3 class='category-name-count'>${category.posts_on_categories} </h3>
+                    </div>`;
+                }
+            },
+
+            error: function (error) {
+                console.log('Error', error);
+            }
+
+        })
+    })
+}
+
+get_all_categories()

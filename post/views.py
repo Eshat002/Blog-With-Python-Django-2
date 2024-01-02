@@ -143,3 +143,19 @@ def get_top_users_with_max_post_views(request):
                         'total_views': user.total_views} for user in top_users_with_max_views]
 
     return JsonResponse({'data': serialized_data})
+
+
+
+def get_all_categories(request):
+    categories = Category.objects.all()
+    data=[]
+    
+    for category in categories:
+        category_data = {
+         
+            'name': category.name,
+            'posts_on_categories': str(category.blogpost_set.all().count()).zfill(2)
+         }
+        data.append(category_data)
+
+    return JsonResponse({'categories': data})
