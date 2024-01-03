@@ -2,8 +2,10 @@ asgiref==3.7.2
 beautifulsoup4==4.12.2
 cssselect==1.2.0
 Django==5.0
+gunicorn==21.2.0
 lxml==4.9.3
 markdown2==2.4.12
+packaging==23.2
 Pillow==10.1.0
 pyquery==2.0.0
 readtime==3.0.0
