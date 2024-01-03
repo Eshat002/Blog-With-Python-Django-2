@@ -5,6 +5,14 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
+from django.utils import timezone
+
+
+
+class Visitor(models.Model):
+    identifier = models.CharField(max_length=255, unique=True)
+    visit_time = models.DateTimeField(default=timezone.now)
+
 
     
 class Profile(models.Model):
