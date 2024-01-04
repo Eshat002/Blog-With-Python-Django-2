@@ -2,6 +2,7 @@ from django.db import models
 from readtime import of_html
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User   
+from django.utils import timezone
 
 
 
@@ -18,6 +19,10 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+
 
 class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE) 

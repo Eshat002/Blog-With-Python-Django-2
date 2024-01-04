@@ -3,7 +3,9 @@ from django.http import JsonResponse
 from .models import *
 from django.db.models import F, Sum
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from profiles.models import Visitor
+from django.utils import timezone
+from readtime import of_html
 
 def post(request):
     queryset = BlogPost.objects.all()
@@ -159,3 +161,39 @@ def get_all_categories(request):
         data.append(category_data)
 
     return JsonResponse({'categories': data})
+
+
+def todays_update(request):
+    today = timezone.now().date()
+    total_visitors = Visitor.objects.filter(visit_time__date=today).count()
+    todays_posts=BlogPost.objects.filter(created_at__date=today).count()
+ 
+
+
+    data = {
+        'total_visitors':total_visitors,
+        'todays_posts':todays_posts,
+        'new_subscriber':14,
+        'blog_read':"360 min"
+
+    }
+   
+
+    return JsonResponse({'data': data})
+
+#daily_view
+# def daily_view(request):
+# from django.utils import timezone
+
+# # Assuming you have a BlogPost instance called 'blog_post'
+# blog_post = BlogPost.objects.get(id=1)
+
+# # Get or create DailyView record for today
+# daily_view, created = DailyView.objects.get_or_create(
+#     blog_post=blog_post,
+#     date=timezone.now().date()
+# )
+
+# # Increment views
+# daily_view.views += 1
+# daily_view.save()
