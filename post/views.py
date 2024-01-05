@@ -173,27 +173,12 @@ def todays_update(request):
     data = {
         'total_visitors':total_visitors,
         'todays_posts':todays_posts,
-        'new_subscriber':14,
-        'blog_read':"360 min"
+        'new_subscribers':14,
+        'blog_read':360
 
     }
    
 
     return JsonResponse({'data': data})
 
-#daily_view
-# def daily_view(request):
-# from django.utils import timezone
-
-# # Assuming you have a BlogPost instance called 'blog_post'
-# blog_post = BlogPost.objects.get(id=1)
-
-# # Get or create DailyView record for today
-# daily_view, created = DailyView.objects.get_or_create(
-#     blog_post=blog_post,
-#     date=timezone.now().date()
-# )
-
-# # Increment views
-# daily_view.views += 1
-# daily_view.save()
+ 

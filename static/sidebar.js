@@ -2,6 +2,7 @@ const top_authors_container = document.getElementById("top-authors-container")
 const top_authors_headline = document.getElementById("top-authors-headline")
 const ad_container = document.getElementById("ad-container")
 const category_container = document.getElementById("category-container")
+const todays_update_container = document.getElementById("todays-update-container")
 
 
 
@@ -122,3 +123,71 @@ function get_all_categories() {
 }
 
 get_all_categories()
+
+
+
+function get_todays_update() {
+    $(document).ready(function () {
+        $.ajax({
+            url: '/todays_update/',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                console.log("response_today", response.data)
+                todays_update_container.innerHTML = `<div class='mb-3 todays-update-single'>             
+                <div class='d-flex todays-update-first-row mb-3'>
+                <div class='todays-update-box me-3'>
+                <p class='todays_update_data'>
+                ${response.data.todays_posts}
+                </P>
+                <p class='todays_update_text'>
+                New posts
+                </p>
+ 
+                </div>
+
+                <div class='todays-update-box'>
+                <p class='todays_update_data'>
+                ${response.data.total_visitors}
+                </p>
+                <p class='todays_update_text'>
+                total visitors
+                </p>
+                </div>
+                
+                </div>
+                <div class='d-flex todays-update-sec-row'>
+                <div class='todays-update-box me-3'>
+                <p class='todays_update_data'> 
+                 ${response.data.new_subscribers}
+                </p>
+              
+                <p class='todays_update_text'>
+                New  subscribers
+                </p>
+                </div>
+                <div class='todays-update-box'>
+                <p class='todays_update_data'>
+                ${response.data.blog_read}
+                </p>
+                <p class='todays_update_text'>
+                blog read
+                </p>
+                </div>
+                
+                
+                </div>
+
+                </div>`
+
+            },
+
+            error: function (error) {
+                console.log('Error', error);
+            }
+
+        })
+    })
+}
+
+get_todays_update()

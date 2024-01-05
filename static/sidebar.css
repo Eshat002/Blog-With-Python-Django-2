@@ -156,3 +156,60 @@
     background-color: #00AAA1;
     padding: 0px 2px;
 }
+
+.todays_update_data {
+    color: #00AAA1;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 33.6px */
+    text-transform: capitalize;
+}
+
+.todays_update_text {
+    color: #222;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 22.5px */
+    text-transform: capitalize;
+}
+
+.todays-update-box {
+    border-radius: 10px;
+    background: #F2F8F7;
+    padding: 30px;
+    /* margin-right: 20px;
+    margin-bottom: 20px; */
+}
+
+.todays-update-sec-row>div,
+.todays-update-first-row>div {
+    width: 50%;
+    /* margin-right: 20px */
+}
+
+
+.todays-update-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+    margin: 80px 0px 30px 0px
+}
+
+
+.todays-span {
+    color: #FFF;
+    background-color: #00AAA1;
+    padding: 0px 2px;
+}
