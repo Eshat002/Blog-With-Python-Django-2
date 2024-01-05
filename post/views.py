@@ -11,7 +11,7 @@ def post(request):
     queryset = BlogPost.objects.all()
 
     # Number of items to display per page
-    items_per_page = 8
+    items_per_page = 10
     paginator = Paginator(queryset, items_per_page)
 
     # Get the current page number from the request's GET parameters
@@ -149,7 +149,7 @@ def get_top_users_with_max_post_views(request):
 
 
 def get_all_categories(request):
-    categories = Category.objects.all()
+    categories = Category.objects.all()[:7]
     data=[]
     
     for category in categories:
@@ -182,3 +182,32 @@ def todays_update(request):
     return JsonResponse({'data': data})
 
  
+def get_all_insta_posts(request):
+    insta_posts = InstaPost.objects.all()[:9]
+    data=[]
+    
+    for post in insta_posts:
+        insta_data = {
+            'id':post.id,
+            'insta_image': post.insta_image.url,
+            'insta_url': post.insta_url
+         }
+        data.append(insta_data)
+
+    return JsonResponse({'insta_posts': data})
+
+
+
+def get_all_tags(request):
+    tags = Tag.objects.all()[:9]
+    data=[]
+    
+    for tag in tags:
+        tag_data = {
+            'id':tag.id,
+            'name': tag.name,
+           
+         }
+        data.append(tag_data)
+
+    return JsonResponse({'tags': data})

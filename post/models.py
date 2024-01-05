@@ -3,6 +3,7 @@ from readtime import of_html
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User   
 from django.utils import timezone
+from django.core.validators import URLValidator
 
 
 
@@ -17,8 +18,13 @@ class Category(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=50)
 
+    
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
         return self.name
+    
     
 
 
@@ -51,3 +57,15 @@ class BlogPost(models.Model):
         return self.title
 
 
+class InstaPost(models.Model):
+    
+    insta_image = models.ImageField(upload_to='insta_images/', default='insta_images/default_insta_image.png', validators=[
+                              FileExtensionValidator(['png', 'jpg', 'jpeg', 'gif'])], blank=True, null=True)
+    insta_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
+
+
+
+    class Meta:
+        ordering = ['-id']
+
+    

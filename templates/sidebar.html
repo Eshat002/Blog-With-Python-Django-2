@@ -1,6 +1,7 @@
 {% load static %}
 
 <head>
+
     <link rel="stylesheet" type='text/css' href={% static 'sidebar.css' %}>
 </head>
 
@@ -15,6 +16,15 @@
     <div id="category-container"></div>
     <h2 class="todays-update-headline"><span class="todays-span">Today’s</span> update</h2>
     <div id="todays-update-container"></div>
+    <h2 class="insta-posts-headline"><span class="insta-span-sidebar">Instagram</span> posts</h2>
+    <div class='row gx-3' id="insta-posts-container"></div>
+
+    <h2 id="tags-headline-sidebar-id" class="tags-headline-sidebar"><span class="search-span-sidebar">search</span> with
+        tags</h2>
+
+    <div class='mb-5' id="tags-container"></div>
+
+
 
 
     <script src="{% static 'sidebar.js' %}"></script>

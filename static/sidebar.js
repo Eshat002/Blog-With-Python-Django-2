@@ -3,6 +3,8 @@ const top_authors_headline = document.getElementById("top-authors-headline")
 const ad_container = document.getElementById("ad-container")
 const category_container = document.getElementById("category-container")
 const todays_update_container = document.getElementById("todays-update-container")
+const insta_posts_container = document.getElementById("insta-posts-container")
+const tags_container = document.getElementById("tags-container")
 
 
 
@@ -191,3 +193,61 @@ function get_todays_update() {
 }
 
 get_todays_update()
+
+
+
+function get_insta_posts() {
+    $(document).ready(function () {
+        $.ajax({
+            url: '/insta_posts/',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+
+                for (const post of response.insta_posts) {
+                    insta_posts_container.innerHTML += `<div class='single-insta-post-container col-lg-4 mb-3'>  
+                    <a href='${post.insta_url}'>
+                    <img style="width:100%; object-fit:cover; border-radius:5px" src="${post.insta_image}" alt="insta-image" >
+                    </a>
+                    
+                    </div>`;
+                }
+            },
+
+            error: function (error) {
+                console.log('Error', error);
+            }
+
+        })
+    })
+}
+
+get_insta_posts()
+
+
+
+function get_all_tags() {
+    $(document).ready(function () {
+        $.ajax({
+            url: '/get-all-tags/',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+
+                for (const tag of response.tags) {
+                    tags_container.innerHTML += `  
+                    <a class='sidebar-tag-button me-2' href=''>${tag.name}</a>
+
+                     `;
+                }
+            },
+
+            error: function (error) {
+                console.log('Error', error);
+            }
+
+        })
+    })
+}
+
+get_all_tags()
