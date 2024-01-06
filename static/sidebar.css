@@ -256,3 +256,36 @@
 #tags-headline-sidebar-id {
     margin-top: 50px !important
 }
+
+
+@media screen and (min-width:1920px) {
+    .top-author-image {
+        width: 80px;
+        height: 80px;
+
+    }
+}
+
+
+@media screen and (max-width:1366px) {
+    .top-author-image {
+        width: 55px !important;
+        height: 55px !important;
+
+    }
+}
+
+
+@media screen and (max-width:991.20px) {
+    .recent-post-title {
+        font-size: 25px;
+    }
+
+    .top-author-image-container {
+        width: 11% !important;
+    }
+
+    /* .top-author-image {
+        margin-right: 15px
+    }   */
+}
