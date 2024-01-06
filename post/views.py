@@ -129,12 +129,13 @@ def get_most_viewed_posts(request):
 
 
 def get_top_users_with_max_post_views(request):
-  
+     
     top_users_with_max_views = (
         User.objects
         .annotate(total_views=Sum('blogpost__views'))
         .order_by('-total_views')[:3]
     )
+
 
     serialized_data = [{'username': user.username, 'about_me':user.profile.about_me,
                         'profession':user.profile.profession,
@@ -144,7 +145,7 @@ def get_top_users_with_max_post_views(request):
                         'author_image':user.profile.avatar.url,
                         'total_views': user.total_views} for user in top_users_with_max_views]
 
-    return JsonResponse({'data': serialized_data})
+    return JsonResponse({'data':serialized_data})
 
 
 

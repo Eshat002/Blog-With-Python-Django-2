@@ -5,6 +5,16 @@ const category_container = document.getElementById("category-container")
 const todays_update_container = document.getElementById("todays-update-container")
 const insta_posts_container = document.getElementById("insta-posts-container")
 const tags_container = document.getElementById("tags-container")
+const spinner_for_top_authors = document.getElementById("spinner-for-top-authors")
+const spinner_for_ad = document.getElementById("spinner-for-ad")
+const spinner_for_category = document.getElementById("spinner-for-category")
+const category_headline_sidebar = document.getElementById("category-headline-sidebar")
+const spinner_for_todays_update = document.getElementById("spinner-for-todays-update")
+const todays_update_headline_sidebar = document.getElementById("todays-update-headline-sidebar")
+const spinner_for_insta_posts = document.getElementById("spinner-for-insta-posts")
+const insta_posts_headline_sidebar = document.getElementById("insta-posts-headline-sidebar")
+const spinner_for_tags_sidebar = document.getElementById("spinner-for-tags-sidebar")
+const tags_headline_sidebar_id = document.getElementById("tags-headline-sidebar-id")
 
 
 
@@ -16,10 +26,12 @@ function get_top_authors() {
             dataType: 'json',
             success: function (response) {
 
+                spinner_for_top_authors.classList.add('d-none')
+                top_authors_headline.innerHTML = `<span class="top-authors-span">top</span> authors`
+
+
                 // console.log("top_container", top_authors_container)
                 for (const data of response.data) {
-
-                    console.log("data", data)
 
                     top_authors_container.innerHTML += `<div style='margin-bottom:30px' class='d-flex'>  
                     <div style="width:20%" class='top-author-image-container'>
@@ -77,14 +89,16 @@ function get_ad() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+                spinner_for_ad.classList.add('d-none')
 
-                ad_container.innerHTML = `<div class='single-ad'>  
-                <p  class='text-end ad-sticker'>Ad</p> 
-             
+                if (response.data.show == true) {
+                    ad_container.innerHTML = `<div class='single-ad'>  
+                <p  class='text-end ad-sticker'>Ad</p>              
                  <h2 class='sidebar-ad-title'>${response.data.title}</h2>
                  <p class='sidebar-ad-des'>${response.data.des} </p>
                  <a href='${response.data.ad_url}' class='sidebar-ad-link'>Visit Us </a>
                     </div>`;
+                }
 
             },
 
@@ -107,6 +121,8 @@ function get_all_categories() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+                spinner_for_category.classList.add('d-none')
+                category_headline_sidebar.innerHTML = `<span class="category-span-sidebar">Categories</span>`
                 for (const category of response.categories) {
                     // console.log("categoris", response.categories)
                     category_container.innerHTML += `<div class='d-flex single-category mt-2 justify-content-between'>  
@@ -135,6 +151,9 @@ function get_todays_update() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+                spinner_for_todays_update.classList.add('d-none')
+                todays_update_headline_sidebar.innerHTML = `<span class="todays-span">Today’s</span>
+                update`
                 console.log("response_today", response.data)
                 todays_update_container.innerHTML = `<div class='mb-3 todays-update-single'>             
                 <div class='d-flex todays-update-first-row mb-3'>
@@ -204,6 +223,10 @@ function get_insta_posts() {
             dataType: 'json',
             success: function (response) {
 
+                spinner_for_insta_posts.classList.add("d-none")
+                insta_posts_headline_sidebar.innerHTML = `<span class="insta-span-sidebar">Instagram</span>
+                posts`
+
                 for (const post of response.insta_posts) {
                     insta_posts_container.innerHTML += `<div class='single-insta-post-container col-lg-4 mb-3'>  
                     <a href='${post.insta_url}'>
@@ -233,6 +256,10 @@ function get_all_tags() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+                spinner_for_tags_sidebar.classList.add('d-none')
+                tags_headline_sidebar_id.innerHTML = `<span class="search-span-sidebar">search</span>
+                with
+                tags`
 
                 for (const tag of response.tags) {
                     tags_container.innerHTML += `  
