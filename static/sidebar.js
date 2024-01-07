@@ -228,7 +228,7 @@ function get_insta_posts() {
                 posts`
 
                 for (const post of response.insta_posts) {
-                    insta_posts_container.innerHTML += `<div class='single-insta-post-container col-md-4 col-lg-4 mb-3'>  
+                    insta_posts_container.innerHTML += `<div class='single-insta-post-container col-6 col-md-4 col-lg-4 mb-3'>  
                     <a href='${post.insta_url}'>
                     <img style="width:100%; object-fit:cover; border-radius:5px" src="${post.insta_image}" alt="insta-image" >
                     </a>

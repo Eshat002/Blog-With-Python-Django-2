@@ -289,3 +289,21 @@
         margin-right: 15px
     }   */
 }
+
+
+@media screen and (max-width:767.20px) {
+
+    .top-author-detail-container {
+        margin-left: 30px !important
+    }
+}
+
+
+@media screen and (max-width:500px) {
+
+    .top-author-detail-container {
+        margin-left: 45px !important
+    }
+
+
+}

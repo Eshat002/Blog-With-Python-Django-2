@@ -57,7 +57,7 @@
 <div class="sec-section mt-4">
     <div class="container-fluid">
         <div class="row">
-            <div style="padding-right:100px" class="col-lg-8">
+            <div style="padding-right:100px" class="col-lg-8 recent-post-first-col">
                 <div class="spinner-container text-center">
                     <div id="spinner-for-recent-post" style="color:#00AAA1" class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>
@@ -72,15 +72,18 @@
                 </h2>
                 <div class="recent-post-container">
                     {% for obj in objects %}
-                    <div style="margin-bottom:35px" class="d-flex">
+                    <div style="margin-bottom:35px" class="d-flex recent-post-row">
                         <div style="width:30%" class="me-4">
                             <img style="width: 100%; border-radius: 5px; object-fit: cover;"
                                 src="{{obj.featured_image.url}}" alt="image">
                         </div>
                         <div style="width:70%" class="">
-                            <p style="margin-top:-7px" class="recent-post-category post-category"><span
-                                    class="post-category-span">{{obj.category}}</span></p>
+
                             <h2 class="recent-post-title">{{ obj.title|truncatechars:40 | safe }}</h2>
+                            <p style="margin-top:-17px; margin-bottom:20px" class="recent-post-category post-category">
+                                <span class="post-category-span">{{obj.category}}</span>
+                            </p>
+
                             <div class='recent-post-details d-flex'>
                                 <div class='d-flex pe-2'>
                                     <img class='recent-post-author-image' alt="author-image"
@@ -97,7 +100,7 @@
                                             fill="#555555" />
                                     </svg>
                                     <span class="post-details-text">
-                                        {{obj.created_at}}
+                                        {{obj.created_at |date:"Y-m-d"}}
                                     </span>
                                 </div>
 
@@ -178,7 +181,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-4 ">
+            <div class="col-lg-4 recent-post-sec-col">
 
                 {% include 'sidebar.html' %}
 
