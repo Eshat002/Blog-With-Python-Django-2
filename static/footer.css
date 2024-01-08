@@ -1,0 +1,137 @@
+.footer .container-fluid {
+    width: 85%;
+}
+
+.footer-title {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    /* 17px */
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    /* 15px */
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.footer .footer-row-1 p {
+    margin-bottom: 8px;
+}
+
+.footer-text {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 20px
+        /* 22.5px */
+}
+
+
+.footer-input-email::placeholder {
+    color: #777;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+
+
+    /* 15px */
+}
+
+.footer-input-email {
+    border: none;
+    border-radius: 6px;
+    background: #DFF1F0;
+    outline: none;
+    padding: 8px 25px
+}
+
+.footer-subscribe-btn {
+    border-radius: 0px 6px 6px 0px;
+    background: #00AAA1;
+    color: #FFF;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    border: none;
+    padding: 8px 25px
+        /* 15px */
+}
+
+.follow-on-footer-title {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    /* 17px */
+    text-transform: capitalize;
+    margin: 30px 0px 25px 0px
+}
+
+
+@media screen and (max-width:1368px) and (min-width:991.20px) {
+    .footer-subscribe-btn {
+        margin-top: 10px !important;
+        padding: 10px 25px !important;
+        border-radius: 6px !important;
+        /* 15px */
+    }
+
+    .footer-input-email {
+        border-radius: 6px !important;
+
+    }
+
+}
+
+
+
+
+
+@media screen and (max-width:991.20px) {
+
+    .footer .footer-row-1 .sec-col {
+        margin-left: 0px !important;
+        /* padding-left: 0px !important */
+    }
+
+    .footer .footer-row-1 .last-col {
+        padding-left: 12px !important
+    }
+}
+
+
+@media screen and (max-width:456px) {
+    .footer-subscribe-btn {
+        margin-top: 10px !important;
+        padding: 10px 25px !important;
+        border-radius: 6px !important;
+
+    }
+
+    .footer-input-email {
+        border-radius: 6px !important;
+
+    }
+
+}
