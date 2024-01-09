@@ -63,7 +63,14 @@
     margin-left: -55px
 }
 
+.custom-navbar .dropdown-menu a:hover {
+    background-color: transparent;
+}
 
+
+
+
+/* css media query */
 @media screen and (max-width: 1600px) {
 
     .custom-navbar .container-fluid {

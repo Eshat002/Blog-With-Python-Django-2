@@ -2,20 +2,27 @@ from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from .models import Subscriber
 
-
-print("validatior", validate_email)
+ 
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        print("email", email)
+       
+        if not email:
+            return JsonResponse({"data": "Email cannot be empty."})
+
         try:
             validate_email(email)
-            return JsonResponse({"Email is valid":"yes"})
-            # Email is valid, proceed with saving or further processing
+            subscriber, created= Subscriber.objects.get_or_create(email=email)
+            if created:
+               return JsonResponse({"data":"You are subscribed."})
+
+            elif not created:
+                return JsonResponse({"data":"You already subscribed."})               
+            
         except ValidationError as e:
-            # response_data = {'status': 'error', 'message': str(e)}  # Return a detailed error message
-            # return JsonResponse(response_data, status=400)
-            return JsonResponse({"Email is valid":"No"})
+            print("e",e)
+            return JsonResponse({"data":"Email is not valid."})
         
     return HttpResponse("Method may be different")

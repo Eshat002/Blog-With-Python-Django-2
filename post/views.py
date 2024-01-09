@@ -6,6 +6,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from profiles.models import Visitor
 from django.utils import timezone
 from readtime import of_html
+from subscriber.models import Subscriber
+
 
 def post(request):
     queryset = BlogPost.objects.all()
@@ -168,13 +170,14 @@ def todays_update(request):
     today = timezone.now().date()
     total_visitors = Visitor.objects.filter(visit_time__date=today).count()
     todays_posts=BlogPost.objects.filter(created_at__date=today).count()
- 
+    todays_subscribers = Subscriber.objects.filter(created__date=today).count()
+
 
 
     data = {
         'total_visitors':total_visitors,
         'todays_posts':todays_posts,
-        'new_subscribers':14,
+        'new_subscribers':todays_subscribers,
         'blog_read':360
 
     }

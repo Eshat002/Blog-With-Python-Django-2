@@ -1,5 +1,9 @@
 const footer_input = document.querySelector('.footer-input-email')
 
+const subscribe_response_text = document.querySelector('.response-text-subscribe')
+
+
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -32,7 +36,29 @@ $(document).ready(function () {
 
             },
             success: function (response) {
-                console.log(response);
+                console.log("res", response.data)
+                footer_input.value = ''
+
+                if (response.data == "Email cannot be empty.") {
+                    subscribe_response_text.innerHTML = `<p class="response-para-subscribe-warning">${response.data}</p>`
+                }
+
+                else if (response.data == "Email is not valid.") {
+                    subscribe_response_text.innerHTML = `<p class="response-para-subscribe-warning">${response.data}</p>`
+                }
+
+                else if (response.data == "You already subscribed.") {
+                    subscribe_response_text.innerHTML = `<p class="response-para-subscribe-warning">${response.data}</p>`
+                }
+
+                else if (response.data == "You are subscribed.") {
+                    subscribe_response_text.innerHTML = `<p class="response-para-subscribe">${response.data}</p>`
+                }
+
+                else {
+                    console.log("something bad happened.")
+                }
+                // subscribe_response_text.innerHTML = `<p class="response-para-subscribe">hell</p>`
 
             },
             error: function (error) {
@@ -43,3 +69,4 @@ $(document).ready(function () {
 });
 
 
+document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
