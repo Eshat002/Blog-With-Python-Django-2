@@ -1,3 +1,8 @@
+footer {
+    background-color: #F2F8F7;
+    padding-top: 65px
+}
+
 .footer .container-fluid {
     width: 85%;
 }

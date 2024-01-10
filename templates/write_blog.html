@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+<link rel="stylesheet" type='text/css' href={% static 'write_blog.css' %}>
+{% endblock style %}
+
+
+{% block content %}
+<div class="write-blog-first-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6  text-center">
+                <h2 class="write-blog-headline">
+                    <span class="write-blog-headline-highlighted">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                            <path
+                                d="M16.1091 0.424289L16.5753 0.890531C17.2178 1.53379 17.1206 2.67411 16.3564 3.43748L6.74155 13.0523L3.62642 14.1919C3.23525 14.3357 2.85435 14.1492 2.77691 13.777C2.75074 13.642 2.76306 13.5023 2.81247 13.374L3.97412 10.232L13.5621 0.643185C14.3263 -0.120188 15.4666 -0.218178 16.1091 0.425079V0.424289ZM6.32193 1.38048C6.42571 1.38048 6.52847 1.40092 6.62434 1.44063C6.72022 1.48035 6.80734 1.53856 6.88072 1.61194C6.9541 1.68532 7.01231 1.77243 7.05202 1.86831C7.09173 1.96419 7.11217 2.06695 7.11217 2.17072C7.11217 2.2745 7.09173 2.37726 7.05202 2.47313C7.01231 2.56901 6.9541 2.65613 6.88072 2.72951C6.80734 2.80289 6.72022 2.8611 6.62434 2.90081C6.52847 2.94052 6.42571 2.96096 6.32193 2.96096H3.16097C2.7418 2.96096 2.33979 3.12748 2.0434 3.42388C1.747 3.72027 1.58048 4.12228 1.58048 4.54145V14.0243C1.58048 14.4435 1.747 14.8455 2.0434 15.1419C2.33979 15.4383 2.7418 15.6048 3.16097 15.6048H12.6439C13.063 15.6048 13.465 15.4383 13.7614 15.1419C14.0578 14.8455 14.2243 14.4435 14.2243 14.0243V10.8634C14.2243 10.6538 14.3076 10.4528 14.4558 10.3046C14.604 10.1564 14.805 10.0731 15.0146 10.0731C15.2242 10.0731 15.4252 10.1564 15.5734 10.3046C15.7216 10.4528 15.8048 10.6538 15.8048 10.8634V14.0243C15.8048 14.8627 15.4718 15.6667 14.879 16.2595C14.2862 16.8523 13.4822 17.1853 12.6439 17.1853H3.16097C2.32263 17.1853 1.51862 16.8523 0.925826 16.2595C0.333029 15.6667 0 14.8627 0 14.0243V4.54145C0 3.70311 0.333029 2.8991 0.925826 2.30631C1.51862 1.71351 2.32263 1.38048 3.16097 1.38048H6.32193Z"
+                                fill="#EFFAF9" />
+                        </svg>
+                        Write on</span> notebook
+                </h2>
+
+                <div>
+                    <span class="write-blog-main-text">
+                        <h2> Write on notebook is very simple</h2>
+                        Go to your mail and start typing your article with title & categories, attached your image/video
+                        file (if have).
+                        <h4> type your personal information.</h4>
+
+                        (Name, Occupation, Address, Social media links)
+
+                        <p>Send it on: <span>blog.notebook@gmail.com</span> </p>
+                    </span>
+
+                    <a class="go-to-mail-btn" href="mailto:blog.notebook@gmail.com">
+                        Go to your mail</a>
+
+
+                </div>
+
+
+
+            </div>
+            <div class=" col-lg-3">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="write-blog-sec-section">
+    <div class="container-fluid">
+        <div class="row  text-center">
+            <h2 style="margin:75px 0px 50px 0px" class="write-blog-headline write-blog-headline-sec-section">
+                <span class="write-blog-headline-highlighted">
+                    How can you earn
+                </span> by writing on medium
+            </h2>
+            <div class="col-lg mb-3">
+                <h2>
+                    by ad revinue
+                </h2>
+                <p>
+                    Dynamically underwhelm integrated outsourcing via timely models. Rapidiously reconceptualize
+                    visionary imperatives without 24/365 catalysts for change. Completely streamline functionalized
+                    models and out-of-the-box functionalities.
+                </p>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg mb-3">
+                <h2>
+                    by affiliate programme
+                </h2>
+                <p>
+                    Dynamically underwhelm integrated outsourcing via timely models. Rapidiously reconceptualize
+                    visionary imperatives without 24/365 catalysts for change. Completely streamline functionalized
+                    models and out-of-the-box functionalities. Authoritatively target proactive vortals vis-a-vis
+                    exceptional results. Compellingly brand </p>
+            </div>
+            <h3>want to know more?</h3>
+            <a href="" class="faq-page-link">Go to FEQ page</a>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

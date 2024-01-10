@@ -1,0 +1,167 @@
+.write-blog-first-section .container-fluid {
+    width: 85%
+}
+
+.write-blog-first-section {
+    padding-top: 70px;
+    padding-bottom: 90px;
+    background: #F2F8F7;
+}
+
+.write-blog-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+}
+
+.write-blog-headline-highlighted {
+    color: #FFF;
+    background-color: #00AAA1;
+    padding: 0px 7px
+}
+
+
+.social-container a {
+    text-decoration: none;
+    border: 1px solid #C4C4C4;
+    padding: 3px 3px 3px 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.social-container a svg {
+    width: 13px;
+    height: 13px;
+}
+
+.write-blog-main-text {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+
+.write-blog-main-text h2 {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 25.5px */
+    text-transform: capitalize;
+    margin: 30px 0px 20px 0px
+}
+
+
+.write-blog-main-text h4 {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform: capitalize;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.write-blog-main-text span {
+    color: #222;
+    font-weight: 500;
+
+}
+
+.write-blog-main-text p {
+    margin: 20px 0px 40px 0px
+}
+
+
+.go-to-mail-btn {
+    text-decoration: none;
+    color: #00AAA1;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 22.5px */
+    text-transform: capitalize;
+    border-radius: 6px;
+    border: 1px solid #00AAA1;
+    padding: 9px 18px;
+
+
+}
+
+.write-blog-sec-section .container-fluid {
+    width: 85%;
+}
+
+.write-blog-sec-section .row .col-lg h2 {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 29.4px */
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.write-blog-sec-section .row .col-lg p {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+
+.write-blog-sec-section .row h3 {
+    color: #333;
+    font-family: "Noto Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 29.4px */
+    text-transform: capitalize;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.write-blog-sec-section .faq-page-link {
+    text-decoration: none;
+    color: #00AAA1;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    /* 15px */
+    text-transform: capitalize;
+}
+
+.write-blog-sec-section {
+    padding-bottom: 30px;
+    padding-top: 10px
+}
+
+
+/* css media query */
+
+@media screen and (max-width:768px) {
+    .write-blog-headline-sec-section {
+        font-size: 24px
+    }
+}
