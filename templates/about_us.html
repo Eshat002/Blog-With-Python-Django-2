@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+<link rel="stylesheet" type='text/css' href={% static 'about_us.css' %}>
+{% endblock style %}
+
+{% block content %}
+
+<div class="about-us-first-section">
+    <div class="container-fluid">
+
+        <div class="row text-center">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2 class="about-us-headline about-us-headline-first"><span
+                        class="about-us-headline-highlighted">Notebook is a place</span>
+                    where you can find your perfect blogs</h2>
+                <p class="about-us-text about-us-text-first">Dynamically underwhelm integrated outsourcing via timely
+                    models. Rapidiously
+                    reconceptualize
+                    visionary imperatives without 24/365 catalysts for change. Completely streamline functionalized
+                    models and out-of-the-box functionalities. Authoritatively target proactive vortals vis-a-vis
+                    exceptional results. Compellingly brand emerging sources and compelling materials. Globally iterate
+                    parallel content</p>
+                <h4 class="about-us-sub-headline">The best ideas can change who we are.</h4>
+                <p class="about-us-text mb-5">Dynamically underwhelm integrated outsourcing via timely models.
+                    Rapidiously
+                    reconceptualize
+                    visionary imperatives without 24/365 catalysts for</p>
+
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row text-center mt-5 about-us-sec-row">
+            <h3 class="about-us-headline mb-5"><span class="about-us-headline-highlighted">We are</span>
+                featured on
+            </h3>
+            <div class="col-lg col-md-6 mb-5">
+                <img src="/media/sponsor_images/grammerly.png" alt="sponsor">
+            </div>
+            <div class="col-lg col-md-6 mb-5">
+                <img src="/media/sponsor_images/unsplash.png" alt="sponsor">
+            </div>
+            <div class="col-lg col-md-6 mb-5">
+                <img src="/media/sponsor_images/wordpress.png" alt="sponsor">
+            </div>
+            <div class="col-lg col-md-6 mb-5">
+                <img src="/media/sponsor_images/medium.png" alt="sponsor">
+            </div>
+            <div class="col-lg col-md-6 mb-5">
+                <img src="/media/sponsor_images/blogger.png" alt="sponsor">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="about-us-sec-section">
+    <div class="container-fluid">
+
+        <div class="row">
+            <h3 class="about-us-headline mb-5 text-center"><span class="about-us-headline-highlighted">meet</span>
+                our authors
+            </h3>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div id="author-container-about-us" class="row">
+
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</div>
+<div class="about-us-third-section">
+
+</div>
+<div class="about-us-last-sec">
+    <script src="{% static 'about.js' %}"></script>
+</div>
+
+
+
+{% endblock content %}

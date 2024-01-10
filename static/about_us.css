@@ -1,0 +1,117 @@
+.about-us-first-section .container-fluid {
+    width: 85%;
+}
+
+.about-us-first-section {
+    background: #F2F8F7;
+    padding: 80px 0px 100px 0px
+}
+
+.about-us-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+}
+
+.about-us-headline-highlighted {
+    color: #FFF;
+    background-color: #00AAA1;
+    text-transform: capitalize;
+    padding: 0px 2px
+}
+
+.about-us-text {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 22.5px */
+}
+
+.about-us-sub-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 25.5px */
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.about-us-text-first {
+    margin-top: 25px;
+    margin-bottom: 20px
+}
+
+.about-us-sec-section .container-fluid {
+    width: 85%;
+    padding: 70px 0px
+}
+
+.about-us-author-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 7px;
+
+}
+
+.about-us-name {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 33.6px */
+    text-transform: capitalize;
+}
+
+.about-us-total-posts {
+    color: #777;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 22.5px */
+    text-transform: capitalize;
+}
+
+.about-us-author-link {
+    color: #00AAA1;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+    /* 22.5px */
+}
+
+
+/* css media query */
+@media screen and (max-width:991.20px) {
+    .about-us-first-section .container-fluid .about-us-sec-row {
+        text-align: left !important;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .about-us-headline {
+        font-size: 23px;
+    }
+
+    .about-us-first-section .container-fluid .about-us-sec-row {
+        text-align: center !important;
+    }
+}
