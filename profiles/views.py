@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Count
 from django.contrib.auth.models import User
-from django.http import JsonResponse
- 
+from django.http import JsonResponse, HttpResponse
+from post.models import BlogPost
 
 def author_with_most_posts(request):
     authors = User.objects.annotate(post_count=Count('blogpost')).order_by('-post_count')[:6]
@@ -19,4 +19,41 @@ def author_with_most_posts(request):
 
     return JsonResponse({'authors': data})
 
+ 
 
+def author_profile(request, username):
+    user= User.objects.filter(username=username).first()
+    
+    if not user:
+        return render(request, "not_found.html")
+
+    posts= BlogPost.objects.all().filter(author=user)
+
+ 
+    data1= {
+        "avatar_url": user.profile.avatar.url,
+        "username":user.username,
+        "about_me":user.profile.about_me,
+        'facebook_url':user.profile.facebook_url,
+        "insta_url":user.profile.instagram_url,
+        "twitter_url":user.profile.twitter_url
+    }
+
+    data2=[]
+
+    for post in posts:
+        post_data = {
+            'title': post.title[:35],
+            'content': f'{post.content[:90]}...' if len(post.content) > 90 else post.content[:90],
+            'category': post.category.name if post.category else "",
+            # 'tags': [tag.name for tag in post.tags.all()],
+            'created_at': post.created_at.strftime('%d %B %Y'),
+            'featured_image_url': post.featured_image.url if post.featured_image else "",
+            'author_name': post.author.username if post.author else None,
+            'readtime': post.readtime,
+            'author_image': post.author.profile.avatar.url
+        }
+
+        data2.append(post_data)
+    
+    return JsonResponse({"data1":data1, "data2":data2})

@@ -136,6 +136,21 @@ footer {
 }
 
 
+.social-container a {
+    text-decoration: none;
+    border: 1px solid #C4C4C4;
+    padding: 3px 3px 3px 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.social-container a svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+
 
 /* css media Query */
 @media screen and (max-width:1368px) and (min-width:991.20px) {

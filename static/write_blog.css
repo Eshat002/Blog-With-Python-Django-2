@@ -25,18 +25,6 @@
 }
 
 
-.social-container a {
-    text-decoration: none;
-    border: 1px solid #C4C4C4;
-    padding: 3px 3px 3px 8px;
-    margin-right: 10px;
-    border-radius: 5px;
-}
-
-.social-container a svg {
-    width: 13px;
-    height: 13px;
-}
 
 .write-blog-main-text {
     color: #555;
