@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+<link rel="stylesheet" type='text/css' href={% static 'profile.css' %}>
+{% endblock style %}
+
+{% block content %}
+
+<div class="profile-first-section">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="about-us-last-sec">
+    <script src="{% static 'profile.js' %}"></script>
+</div>
+
+
+
+{% endblock content %}

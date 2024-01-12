@@ -70,3 +70,5 @@ $(document).ready(function () {
 
 
 document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+
+

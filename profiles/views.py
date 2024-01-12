@@ -21,15 +21,26 @@ def author_with_most_posts(request):
 
  
 
-def author_profile(request, username):
-    user= User.objects.filter(username=username).first()
-    
+def author_profile(request,username):
+
+    user = User.objects.filter(username=username).first()
     if not user:
         return render(request, "not_found.html")
+        
+    return render(request, 'profile.html')
+
+
+
+def author_profile_data(request, username):
+ 
+    user = User.objects.filter(username=username).first()
+    
+    if not user:
+        return JsonResponse({"user not found":True})
 
     posts= BlogPost.objects.all().filter(author=user)
 
- 
+    
     data1= {
         "avatar_url": user.profile.avatar.url,
         "username":user.username,
@@ -40,7 +51,7 @@ def author_profile(request, username):
     }
 
     data2=[]
-
+  
     for post in posts:
         post_data = {
             'title': post.title[:35],

@@ -209,7 +209,20 @@
     .about-us-third-section .container-fluid {
         width: 95%;
     }
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 40px !important
+    }
 }
+
+
+@media screen and (max-width:600px) and (min-width:495px) {
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 25px !important
+    }
+}
+
 
 
 @media screen and (max-width:490px) {

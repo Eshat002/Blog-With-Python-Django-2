@@ -1,4 +1,14 @@
-<h2>
+{% extends 'base.html' %}
+{% load static %}
 
-    Not Found any user
-</h2>
+
+
+{% block style %}
+<link rel="stylesheet" type='text/css' href="{% static 'not_found.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+<h2>We are good</h2>
+
+{% endblock content %}
