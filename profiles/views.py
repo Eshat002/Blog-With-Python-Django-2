@@ -25,7 +25,7 @@ def author_profile(request,username):
 
     user = User.objects.filter(username=username).first()
     if not user:
-        return render(request, "not_found.html")
+        return render(request, "not_found.html", {"message":"the user you are looking for does not exist!"})
         
     return render(request, 'profile.html')
 
@@ -39,8 +39,7 @@ def author_profile_data(request, username):
         return JsonResponse({"user not found":True})
 
     posts= BlogPost.objects.all().filter(author=user)
-
-    
+     
     data1= {
         "avatar_url": user.profile.avatar.url,
         "username":user.username,
