@@ -1,6 +1,10 @@
 const profileUrl = window.location.href + "data/";
 const profile_first_section_data_container = document.getElementById("profile-first-section-data-container")
 const profile_sec_section_row = document.getElementById("profile-sec-section-row")
+const profile_headline = document.getElementById("profile-headline")
+const spinner_for_profile_data = document.getElementById("spinner-for-profile-data")
+const spinner_for_profile_posts = document.getElementById("spinner-for-profile-posts")
+
 
 
 console.log("profile_url", profileUrl)
@@ -11,6 +15,9 @@ function get_profile_data() {
         url: profileUrl,
 
         success: function (response) {
+
+            spinner_for_profile_data.classList.add("d-none")
+            spinner_for_profile_posts.classList.add("d-none")
 
             profile_first_section_data_container.innerHTML = `<div class='d-flex profile-first-section-single'>
   
@@ -47,19 +54,25 @@ function get_profile_data() {
          </div>
          </div>`
 
+
+            profile_headline.innerHTML = "<span class='re-highlighted-span'>Read </span> author blogs"
+
             for (const post of response.data2) {
                 profile_sec_section_row.innerHTML += `
-                 <div class='col-lg-4'>
+                 <div class='col-lg-4 col-md-6 col-sm-6 mb-5'>
                  <div class='profile-sec-section-single-post-container'>
                  <div class='profile-sec-section-image-container'>
-                <img style='width:100%' class='' src="${post.featured_image_url}" alt="featured-image">
+                <img class='re-featured-image' src="${post.featured_image_url}" alt="featured-image">
                  </div>
-                 <p class='re-post-category'>${post.category}</p>
+                 <p class='re-post-category'>
+                 <span class="re-post-category-span">${post.category}</span>
+                 
+                </p>
                  <h2 class='re-post-title'> ${post.title} </h2>
                 
                  <div class="re-post-details d-flex">
                                 <div class="d-flex pe-2">
-                                    <img style="width:30px; height:30px" class="re-post-author-image" alt="author-image" src="${post.author_image}">
+                                    <img class="re-post-author-image" alt="author-image" src="${post.author_image}">
                                     <span class="re-post-details-text">
                                         ${post.author_name}
                                         <span>
@@ -77,7 +90,7 @@ function get_profile_data() {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                                         <path d="M6 0C2.6916 0 0 2.6916 0 6C0 9.3084 2.6916 12 6 12C9.3084 12 12 9.3084 12 6C12 2.6916 9.3084 0 6 0ZM6 10.8C3.3534 10.8 1.2 8.6466 1.2 6C1.2 3.3534 3.3534 1.2 6 1.2C8.6466 1.2 10.8 3.3534 10.8 6C10.8 8.6466 8.6466 10.8 6 10.8Z" fill="#555555"></path>
                                         <path d="M6.60002 3H5.40002V6.2484L7.37582 8.2242L8.22422 7.3758L6.60002 5.7516V3Z" fill="#555555"></path>
-                                    </svg><span class="re-post-details-text"> ${post.readtime} </span>
+                                    </svg><span class="re-post-details-text"> ${post.readtime} Read </span>
                                 </div>
 
                             </div>

@@ -9,9 +9,19 @@
 
 {% block content %}
 
+
+
+
 <div class="profile-first-section">
 
     <div class="container-fluid">
+        <div>
+            <div class="spinner-container mt-3 text-center">
+                <div id="spinner-for-profile-data" style="color:#00AAA1" class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div id="profile-first-section-data-container">
@@ -27,8 +37,16 @@
 <div class="profile-sec-section">
 
     <div class="container-fluid">
+        <h2 id="profile-headline" class="re-headline"></h2>
+        <div>
+            <div class="spinner-container mt-1 text-center">
+                <div id="spinner-for-profile-posts" style="color:#00AAA1" class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
 
-        <div id="profile-sec-section-row" class="row">
+        <div id="profile-sec-section-row" class="row gx-5">
 
 
         </div>
@@ -38,7 +56,7 @@
 
 
 
-<div class="about-us-last-sec">
+<div class="profile-last-sec">
     <script src="{% static 'profile.js' %}"></script>
 </div>
 
