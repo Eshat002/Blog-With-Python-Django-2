@@ -13,6 +13,8 @@ urlpatterns = [
     path('subscribe/', views.subscribe),
     path('write-blog/', TemplateView.as_view(template_name='write_blog.html')),
     path('about-us/', TemplateView.as_view(template_name='about_us.html')),
+    path('contact/', TemplateView.as_view(template_name='contact.html')),
+
 
 
 ]

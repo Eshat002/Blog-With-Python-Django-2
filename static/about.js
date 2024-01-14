@@ -1,4 +1,6 @@
 const about_us_author_container = document.getElementById("author-container-about-us")
+const about_us_headline_id = document.getElementById("about-us-headline-id")
+const spinner_for_author_with_most_posts = document.getElementById("spinner-for-authors-with-most-posts")
 
 
 
@@ -9,7 +11,13 @@ function get_all_authors() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
-                console.log("log", response)
+                // console.log("log", response)
+
+                spinner_for_author_with_most_posts.classList.add("d-none")
+
+                about_us_headline_id.innerHTML = `<span class='about-us-headline-highlighted'>meet</span>
+                our authors`
+
                 for (const author of response.authors) {
                     about_us_author_container.innerHTML += `  
                    <div class='col-lg-6 col-md-6 d-flex mb-4'>
