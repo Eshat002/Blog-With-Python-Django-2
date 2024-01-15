@@ -47,3 +47,7 @@ textarea {
     line-height: 150%;
     /* 22.5px */
 }
+
+
+#contact-form-container-msg,
+#contact-form-container-error {}

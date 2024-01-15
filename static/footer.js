@@ -22,7 +22,6 @@ function getCookie(name) {
 const csrftoken = getCookie('csrftoken');
 
 
-
 $(document).ready(function () {
     $('.footer-subscribe-btn').click(function () {
         var footer_email = footer_input.value
