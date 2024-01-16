@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+<link rel="stylesheet" type='text/css' href="{% static 'posts_by_categories.css' %}">
+{% endblock style %}
+
+
+{% block content %}
+<div class="posts-by-categories">
+    <div class="container-fluid">
+        <div id="posts-by-categories-posts-container">
+
+        </div>
+        <div id='spinner-for-posts-categories' class='text-center'>
+            <div class="spinner-border text-primary" role="status">
+            </div>
+        </div>
+        <div class='text-center mb-3'>
+            <button class='btn btn-primary rounded-pill' id='load-more-categories'>load more</button>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script src="{% static 'posts_by_categories.js' %}"></script>
+
+{% endblock scripts %}
