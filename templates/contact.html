@@ -17,18 +17,18 @@
                 <h2 class="re-headline text-center"> <span style="padding:0px 4px"
                         class="re-highlighted-span">Contact</span> us</h2>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-5">
 
                 <div id="contact-form-container-msg"></div>
 
                 <div class="form-container">
                     <form id="send-msg-form">
                         <!-- {% csrf_token %} -->
-                        <div class="d-flex">
-                            <div style="width: 50%;" class="mb-3 me-3">
+                        <div id="name-email-container" class="d-flex">
+                            <div class="mb-3 me-3 name">
                                 <input placeholder="Name" type="text" name="name" class="form-control" id="fullName">
                             </div>
-                            <div style="width: 50%;" class="mb-3">
+                            <div class="mb-3 email">
                                 <input placeholder="Email" type="email" name="email" class="form-control" id="email">
                             </div>
                         </div>

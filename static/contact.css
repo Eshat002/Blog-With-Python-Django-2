@@ -48,6 +48,26 @@ textarea {
     /* 22.5px */
 }
 
+#send-msg-form .name,
+.email {
+    width: 100%
+}
 
-#contact-form-container-msg,
-#contact-form-container-error {}
+
+@media screen and (max-width:500px) {
+    #send-msg-form #name-email-container {
+        flex-direction: column;
+    }
+
+    #send-msg-form .name,
+    .email {
+        width: 100% !important
+    }
+
+    .contact-us-first-section .container-fluid {
+        width: 90%;
+
+    }
+
+
+}

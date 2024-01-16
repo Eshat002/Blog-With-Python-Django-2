@@ -7,6 +7,7 @@ from profiles.models import Visitor
 from django.utils import timezone
 from readtime import of_html
 from subscriber.models import Subscriber
+from django.core.exceptions import ValidationError,ObjectDoesNotExist
 
 
 def post(request):
@@ -215,3 +216,41 @@ def get_all_tags(request):
         data.append(tag_data)
 
     return JsonResponse({'tags': data})
+
+
+
+def post_by_categories(request,dyna_visible_categories, category_name):
+    
+    visible = 8
+    upper = dyna_visible_categories
+    lower = upper-visible
+ 
+    category= Category.objects.filter(name=category_name).first()
+
+    if not category:
+        return render(request, 'not_found.html', {"message":"the category you are looking for does not exist!"})
+        
+
+    posts_by_categories=category.blogpost_set.all()
+   
+    data=[]
+     
+    for post in posts_by_categories:
+        post_data = {
+            "id":post.id,
+            'title': post.title[:40],
+            'content': f'{post.content[:110]}...' if len(post.content) > 110 else post.content[:110],
+            'category': post.category.name if post.category else "",
+            # 'tags': [tag.name for tag in post.tags.all()],
+            'created_at': post.created_at.strftime('%d %B %Y'),
+            # 'featured_image_url': post.featured_image.url if post.featured_image else "",
+            'author_name': post.author.username if post.author else None,
+            'readtime': post.readtime,
+            'views': post.views,
+            'author_image':post.author.profile.avatar.url
+        }
+    
+        data.append(post_data)
+   
+    return JsonResponse({"data":data[lower:upper],"size":posts_by_categories.count()})
+
