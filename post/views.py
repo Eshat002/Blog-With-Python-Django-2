@@ -232,7 +232,7 @@ def post_by_categories(request, category_name):
 
 def post_by_categories_data(request,dyna_visible_categories, category_name):
     print("category_name,", category_name)
-    visible = 4
+    visible = 8
     upper = dyna_visible_categories
     lower = upper-visible
  

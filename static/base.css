@@ -115,6 +115,26 @@ body {
     margin-bottom: 30px;
 }
 
+
+.re-load-more-btn {
+
+    border-radius: 7px;
+    background: #00AAA1;
+    color: #FFF;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    border: none;
+    padding: 10px 25px
+        /* 15px */
+    ;
+}
+
+
+/* css media query */
+
 @media screen and (max-width:1230px) {
     .re-post-time-container {
         display: none !important;

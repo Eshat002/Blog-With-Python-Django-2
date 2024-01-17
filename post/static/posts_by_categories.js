@@ -5,7 +5,7 @@ const currentUrl = window.location.href
 const no_more_posts_div = document.getElementById("no-more-posts-div")
 
 
-let dyna_visible_categories = 4
+let dyna_visible_categories = 8
 
 const get_posts_by_categories = () => {
     console.log("pi", dyna_visible_categories)
@@ -60,7 +60,7 @@ const get_posts_by_categories = () => {
                     
                     </div>`
                 })
-                if (datas.length >= 4 && response.size > 4) {
+                if (datas.length >= 8 && response.size > 8) {
                     load_more_categories.classList.remove("d-none")
                     console.log("oka")
 
@@ -70,9 +70,8 @@ const get_posts_by_categories = () => {
                 else {
                     no_more_posts_div.classList.remove("d-none")
                     if (response.size == 0) {
-                        post_by_categories_posts_container.style.marginTop = "150px";
+                        no_more_posts_div.classList.add("zero-no-more-posts")
 
-                        post_by_categories_posts_container.style.marginBottom = "250px";
 
                     }
 
@@ -80,9 +79,7 @@ const get_posts_by_categories = () => {
                 }
             },
 
-
-
-                1000);
+                100);
 
             // if (response.size === 0) {
             //     load_more_categories.classList.add("d-none");
@@ -109,7 +106,7 @@ $("#load-more-categories")
         spinner_for_posts_categories.classList.remove("d-none");
         load_more_categories.classList.add("d-none")
 
-        dyna_visible_categories += 4;
+        dyna_visible_categories += 8;
 
         get_posts_by_categories()
     });

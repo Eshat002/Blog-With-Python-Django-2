@@ -1,3 +1,8 @@
 .posts-by-categories .container-fluid {
     width: 85%;
 }
+
+.zero-no-more-posts {
+    margin-top: 150px !important;
+    margin-bottom: 150px !important;
+}

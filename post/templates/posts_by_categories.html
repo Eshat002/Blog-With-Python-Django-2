@@ -11,15 +11,16 @@
 {% block content %}
 <div class="posts-by-categories mt-5">
     <div class="container-fluid">
+        <h2 class="mb-5 re-headline"> <span class="re-highlighted-span pe-1"> posts</span> by category</h2>
         <div class="" id="posts-by-categories-posts-container">
 
         </div>
         <div id='spinner-for-posts-categories' class='text-center'>
-            <div class="spinner-border text-primary" role="status">
+            <div style="color:#00AAA1 !important;" class="spinner-border text-primary" role="status">
             </div>
         </div>
         <div class='text-center mt-5 mb-3'>
-            <button class='btn btn-primary rounded-pill d-none' id='load-more-categories'>load more</button>
+            <button class='re-load-more-btn d-none' id='load-more-categories'>load more</button>
         </div>
         <div style="margin-top:70px" id="no-more-posts-div" class='text-center mb-3 d-none'>
             <div class="row">
