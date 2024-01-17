@@ -253,7 +253,7 @@ def post_by_categories_data(request,dyna_visible_categories, category_name):
         post_data = {
             "id":post.id,
             'title': post.title[:40],
-            'content': f'{post.content[:110]}...' if len(post.content) > 110 else post.content[:110],
+            'content': f'{post.content[:150]}...' if len(post.content) > 150 else post.content[:150],
             'category': post.category.name if post.category else "",
             # 'tags': [tag.name for tag in post.tags.all()],
             'created_at': post.created_at.strftime('%d %B %Y'),

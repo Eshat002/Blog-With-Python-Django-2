@@ -10,8 +10,8 @@ urlpatterns = [
     path('todays_update/', views.todays_update),
     path('insta_posts/', views.get_all_insta_posts),
     path('get-all-tags/', views.get_all_tags),
-    path('<str:category_name>/posts/', views.post_by_categories),
-    path('<str:category_name>/posts/<int:dyna_visible_categories>/', views.post_by_categories_data),
+    path('category/<str:category_name>/posts/', views.post_by_categories),
+    path('category/<str:category_name>/posts/<int:dyna_visible_categories>/', views.post_by_categories_data),
 
     # path('get-recent-posts/', views.get_recent_posts),
 

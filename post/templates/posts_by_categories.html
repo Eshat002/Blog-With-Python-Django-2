@@ -9,17 +9,28 @@
 
 
 {% block content %}
-<div class="posts-by-categories">
+<div class="posts-by-categories mt-5">
     <div class="container-fluid">
-        <div id="posts-by-categories-posts-container">
+        <div class="" id="posts-by-categories-posts-container">
 
         </div>
         <div id='spinner-for-posts-categories' class='text-center'>
             <div class="spinner-border text-primary" role="status">
             </div>
         </div>
-        <div class='text-center mb-3'>
-            <button class='btn btn-primary rounded-pill' id='load-more-categories'>load more</button>
+        <div class='text-center mt-5 mb-3'>
+            <button class='btn btn-primary rounded-pill d-none' id='load-more-categories'>load more</button>
+        </div>
+        <div style="margin-top:70px" id="no-more-posts-div" class='text-center mb-3 d-none'>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div style="border-radius: 10px;
+                background: #F2F8F7;" class="col-lg-6 p-4">
+                    <h5>No posts to load</h5>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
         </div>
     </div>
 
