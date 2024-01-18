@@ -126,6 +126,7 @@
     line-height: 150%;
     /* 22.5px */
     text-transform: capitalize;
+    text-decoration: none;
 }
 
 .single-category {

@@ -6,3 +6,49 @@
     margin-top: 150px !important;
     margin-bottom: 150px !important;
 }
+
+
+.post-category-posts-by-category {
+    margin-top: 3px
+}
+
+
+/* css media query */
+
+@media screen and (min-width:1920px) {
+    .stick-footer-bottom {
+        position: fixed;
+        width: 100%;
+        bottom: 0
+    }
+
+}
+
+@media screen and (max-width:991.20px) {
+    .post-category-posts-by-category {
+        margin-top: 20px
+    }
+
+    .posts-by-categories .container-fluid {
+        width: 75%;
+    }
+
+}
+
+
+@media screen and (max-width:767.20px) {
+
+    .posts-by-categories .container-fluid {
+        width: 85%;
+    }
+
+}
+
+
+@media screen and (max-width:430px) {
+
+    .posts-by-categories .container-fluid {
+        width: 90%;
+    }
+
+}

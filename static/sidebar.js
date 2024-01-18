@@ -126,7 +126,7 @@ function get_all_categories() {
                 for (const category of response.categories) {
                     // console.log("categoris", response.categories)
                     category_container.innerHTML += `<div class='d-flex single-category mt-2 justify-content-between'>  
-                     <h3 class='category-name-count' >${category.name} </h3>
+                     <h3  ><a class='category-name-count' href='/category/${category.name}/posts/'>${category.name} </a> </h3>
                      <h3 class='category-name-count'>${category.posts_on_categories} </h3>
                     </div>`;
                 }

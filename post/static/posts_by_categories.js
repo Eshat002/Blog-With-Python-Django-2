@@ -3,6 +3,8 @@ const load_more_categories = document.getElementById("load-more-categories")
 const spinner_for_posts_categories = document.getElementById("spinner-for-posts-categories")
 const currentUrl = window.location.href
 const no_more_posts_div = document.getElementById("no-more-posts-div")
+const footer_id = document.getElementById("footer_id")
+
 
 
 let dyna_visible_categories = 8
@@ -27,7 +29,7 @@ const get_posts_by_categories = () => {
                     <img  class='re-featured-image' alt='avatar' src="${data.featured_image_url}">
                     </div>
                     <div class='col-lg-9 ps-3'>
-                        <p class="re-post-category"><span class='re-post-category-span' >${data.category}</span></p>
+                        <p   class="re-post-category post-category-posts-by-category"><span class='re-post-category-span' >${data.category}</span></p>
                         <h2 class='re-post-title'>${data.title}</h2>
                         <div class="re-post-details d-flex">
                                 <div class="d-flex pe-2">
@@ -71,7 +73,7 @@ const get_posts_by_categories = () => {
                     no_more_posts_div.classList.remove("d-none")
                     if (response.size == 0) {
                         no_more_posts_div.classList.add("zero-no-more-posts")
-
+                        footer_id.classList.add("stick-footer-bottom")
 
                     }
 
