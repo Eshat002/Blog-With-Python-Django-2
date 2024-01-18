@@ -18,6 +18,7 @@ const tags_headline_sidebar_id = document.getElementById("tags-headline-sidebar-
 
 
 
+
 function get_top_authors() {
     $(document).ready(function () {
         $.ajax({
@@ -115,6 +116,7 @@ get_ad()
 
 
 function get_all_categories() {
+
     $(document).ready(function () {
         $.ajax({
             url: '/get-all-categories/',
@@ -129,6 +131,7 @@ function get_all_categories() {
                      <h3  ><a class='category-name-count' href='/category/${category.name}/posts/'>${category.name} </a> </h3>
                      <h3 class='category-name-count'>${category.posts_on_categories} </h3>
                     </div>`;
+
                 }
             },
 

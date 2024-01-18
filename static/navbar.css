@@ -30,6 +30,7 @@
 
 .custom-navbar .custom-right-items li {
     display: inline-block;
+
 }
 
 .custom-navbar li a {
@@ -45,14 +46,15 @@
 }
 
 .custom-navbar .dropdown-menu .dropdown-item {
-    margin: 5px 0px 5px 0px;
+    /* margin: 5px 0px 5px 0px; */
 
     /* padding: 0 */
 }
 
 .custom-navbar .dropdown-menu {
     background-color: #E8F3F3;
-    line-height: 30px;
+    /* line-height: 65px; */
+    padding: 15px 0px 10px 0px !important
 }
 
 .mobile-menu {
