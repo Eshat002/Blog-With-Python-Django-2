@@ -268,7 +268,7 @@ function get_all_tags() {
 
                 for (const tag of response.tags) {
                     tags_container.innerHTML += `  
-                    <a class='sidebar-tag-button me-2' href=''>${tag.name}</a>
+                    <a class='sidebar-tag-button me-2' href='/tag/${tag.name}/posts/'>${tag.name}</a>
 
                      `;
                 }

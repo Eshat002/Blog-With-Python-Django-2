@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+<link rel="stylesheet" type='text/css' href="{% static 'posts_by_tags.css' %}">
+{% endblock style %}
+
+
+{% block content %}
+<div class="posts-by-tags mt-5">
+    <div class="container-fluid">
+        <h2 class="mb-5 re-headline"> <span class="re-highlighted-span pe-1"> posts</span> by tags</h2>
+        <div class="" id="posts-by-tags-posts-container">
+
+        </div>
+        <div id='spinner-for-posts-tags' class='text-center'>
+            <div style="color:#00AAA1 !important;" class="spinner-border text-primary" role="status">
+            </div>
+        </div>
+        <div class='text-center mt-5 mb-3'>
+            <button class='re-load-more-btn d-none' id='load-more-tags'>load more</button>
+        </div>
+        <div style="margin-top:70px" id="no-more-posts-div-tags" class='text-center mb-3 d-none'>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div style="border-radius: 10px;
+                background: #F2F8F7;" class="col-lg-6 p-4 me-4">
+                    <h5>No posts to load</h5>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script src="{% static 'posts_by_tags.js' %}"></script>
+
+{% endblock scripts %}

@@ -1,35 +1,35 @@
-const post_by_categories_posts_container = document.getElementById("posts-by-categories-posts-container")
-const load_more_categories = document.getElementById("load-more-categories")
-const spinner_for_posts_categories = document.getElementById("spinner-for-posts-categories")
+const post_by_tags_posts_container = document.getElementById("posts-by-tags-posts-container")
+const load_more_tags = document.getElementById("load-more-tags")
+const spinner_for_posts_tags = document.getElementById("spinner-for-posts-tags")
 const currentUrl = window.location.href
-const no_more_posts_div = document.getElementById("no-more-posts-div")
+const no_more_posts_div_tags = document.getElementById("no-more-posts-div-tags")
 const footer_id = document.getElementById("footer_id")
 
 
 
-let dyna_visible_categories = 8
+let dyna_visible_tags = 8
 
-const get_posts_by_categories = () => {
-    console.log("pi", dyna_visible_categories)
+const get_posts_by_tags = () => {
+    console.log("cii", dyna_visible_tags)
     $.ajax({
         type: "GET",
-        url: `${currentUrl}${dyna_visible_categories}/`,
+        url: `${currentUrl}${dyna_visible_tags}/`,
         dataType: 'json',
 
         success: function (response) {
-            console.log("cate_response", response)
+            console.log("tags_response", response)
             setTimeout(() => {
-                spinner_for_posts_categories.classList.add("d-none");
+                spinner_for_posts_tags.classList.add("d-none");
 
                 datas = response.data
                 datas.forEach(function (data) {
-                    post_by_categories_posts_container.innerHTML += `
+                    post_by_tags_posts_container.innerHTML += `
                     <div style="margin-bottom:30px" class='row gx-4'> 
                     <div class='col-lg-3'>
                     <img  class='re-featured-image' alt='avatar' src="${data.featured_image_url}">
                     </div>
                     <div class='col-lg-9 ps-3'>
-                        <p   class="re-post-category post-category-posts-by-category"><span class='re-post-category-span' >${data.category}</span></p>
+                        <p   class="re-post-category post-category-posts-by-tags"><span class='re-post-category-span' >${data.category}</span></p>
                         <h2 class='re-post-title'>${data.title}</h2>
                         <div class="re-post-details d-flex">
                                 <div class="d-flex pe-2">
@@ -62,17 +62,17 @@ const get_posts_by_categories = () => {
                     
                     </div>`
                 })
-                if (datas.length >= 8 && response.size > dyna_visible_categories) {
-                    load_more_categories.classList.remove("d-none")
+                if (datas.length >= 8 && response.size > dyna_visible_tags) {
+                    load_more_tags.classList.remove("d-none")
                     console.log("oka")
 
                 }
                 // load_more_categories.classList.remove("d-none")
 
                 else {
-                    no_more_posts_div.classList.remove("d-none")
+                    no_more_posts_div_tags.classList.remove("d-none")
                     if (response.size == 0) {
-                        no_more_posts_div.classList.add("zero-no-more-posts")
+                        no_more_posts_div_tags.classList.add("zero-no-more-posts")
                         footer_id.classList.add("stick-footer-bottom")
 
                     }
@@ -101,16 +101,16 @@ const get_posts_by_categories = () => {
 
 }
 
-$("#load-more-categories")
+$("#load-more-tags")
     .unbind("click")
     .bind("click", function (e) {
         e.stopImmediatePropagation();
-        spinner_for_posts_categories.classList.remove("d-none");
-        load_more_categories.classList.add("d-none")
+        spinner_for_posts_tags.classList.remove("d-none");
+        load_more_tags.classList.add("d-none")
 
-        dyna_visible_categories += 8;
+        dyna_visible_tags += 8;
 
-        get_posts_by_categories()
+        get_posts_by_tags()
     });
 
-get_posts_by_categories()
+get_posts_by_tags()

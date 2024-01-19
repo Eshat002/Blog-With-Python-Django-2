@@ -268,3 +268,56 @@ def post_by_categories_data(request,dyna_visible_categories, category_name):
    
     return JsonResponse({"data":data[lower:upper],"size":posts_by_categories.count()})
 
+
+
+def post_by_tags(request, tag_name):
+    tag= Tag.objects.filter(name=tag_name).first()
+ 
+    if not tag:
+        return render(request, 'not_found.html', {"message":"the tag you are looking for does not exist!"})
+
+
+    return render (request, "posts_by_tags.html")
+ 
+
+
+
+def post_by_tags_data(request, dyna_visible_tags, tag_name):
+    print("tag_name,", tag_name)
+    visible = 8
+    upper = dyna_visible_tags
+    lower = upper-visible
+ 
+    tag= Tag.objects.filter(name=tag_name).first()
+    
+    if not tag:
+        return  JsonResponse({"data":"tag does not exists"})
+
+    # if not category:
+    #     return render(request, 'not_found.html', {"message":"the category you are looking for does not exist!"})
+        
+
+    posts_by_tags=tag.blogpost_set.all()
+   
+    data=[]
+     
+    for post in posts_by_tags:
+        post_data = {
+            "id":post.id,
+            'title': post.title[:40],
+            'content': f'{post.content[:150]}...' if len(post.content) > 150 else post.content[:150],
+            'category': post.category.name if post.category else "",
+            # 'tags': [tag.name for tag in post.tags.all()],
+            'created_at': post.created_at.strftime('%d %B %Y'),
+            'featured_image_url': post.featured_image.url if post.featured_image else "",
+            'author_name': post.author.username if post.author else None,
+            'readtime': post.readtime,
+            # 'views': post.views,
+            'author_image':post.author.profile.avatar.url
+        }
+    
+        data.append(post_data)
+   
+    return JsonResponse({"data":data[lower:upper],"size":posts_by_tags.count()})
+
+

@@ -12,7 +12,8 @@ urlpatterns = [
     path('get-all-tags/', views.get_all_tags),
     path('category/<str:category_name>/posts/', views.post_by_categories),
     path('category/<str:category_name>/posts/<int:dyna_visible_categories>/', views.post_by_categories_data),
-
+    path('tag/<str:tag_name>/posts/', views.post_by_tags),
+    path('tag/<str:tag_name>/posts/<int:dyna_visible_tags>/', views.post_by_tags_data),
     # path('get-recent-posts/', views.get_recent_posts),
 
 
