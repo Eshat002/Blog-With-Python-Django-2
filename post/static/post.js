@@ -235,10 +235,10 @@ posts_searching_btn.addEventListener("click", function (event) {
                             post_by_search_posts_container.innerHTML += `
                       
                         <div style="margin-bottom:30px" class='row gx-4'> 
-                        <div class='col-lg-3'>
+    
+                        <div class='col-lg-12 ps-3'>                        
                         <img  class='re-featured-image' alt='avatar' src="${data.featured_image_url}">
-                        </div>
-                        <div class='col-lg-9 ps-3'>
+
                             <p   class="re-post-category post-category-posts-by-search"><span class='re-post-category-span' >${data.category}</span></p>
                             <h2 class='re-post-title'>${data.title}</h2>
                             <div class="re-post-details d-flex">
