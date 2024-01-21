@@ -197,8 +197,8 @@ posts_searching_btn.addEventListener("click", function (event) {
     event.preventDefault()
     console.log("esar", search_input_posts.value)
     // search_keyword = search_input_posts.value
-    var search_keyword = search_input_posts.value ? search_input_posts.value : "Null"
-    let dyna_visible_search = 4
+    var search_keyword = search_input_posts.value ? search_input_posts.value : "null"
+    let dyna_visible_search = 8
     spinner_for_posts_search.classList.remove("d-none")
     console.log("spiiner", spinner_for_posts_search)
     console.log("dyna", dyna_visible_search)
@@ -233,6 +233,7 @@ posts_searching_btn.addEventListener("click", function (event) {
                     else {
                         datas.forEach(function (data) {
                             post_by_search_posts_container.innerHTML += `
+                      
                         <div style="margin-bottom:30px" class='row gx-4'> 
                         <div class='col-lg-3'>
                         <img  class='re-featured-image' alt='avatar' src="${data.featured_image_url}">
@@ -272,7 +273,7 @@ posts_searching_btn.addEventListener("click", function (event) {
                         </div>`
                         })
 
-                        if (datas.length >= 4 && response.size > dyna_visible_search) {
+                        if (datas.length >= 8 && response.size > dyna_visible_search) {
                             load_more_search.classList.remove("d-none")
                             console.log("oka")
 
@@ -322,8 +323,7 @@ posts_searching_btn.addEventListener("click", function (event) {
             spinner_for_posts_search.classList.remove("d-none");
             load_more_search.classList.add("d-none")
 
-            dyna_visible_search += 4;
-
+            dyna_visible_search += 8;
             get_posts_by_search()
         });
 

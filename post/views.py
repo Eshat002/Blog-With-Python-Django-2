@@ -326,7 +326,7 @@ def post_by_tags_data(request, dyna_visible_tags, tag_name):
  
 def post_by_search_data(request, dyna_visible_search, search_keyword):
     print("search_keyword,", search_keyword)
-    visible = 4
+    visible = 8
     upper = dyna_visible_search
     lower = upper-visible
     if  search_keyword.lower() == "null":
