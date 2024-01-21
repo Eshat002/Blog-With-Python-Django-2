@@ -336,20 +336,6 @@ posts_searching_btn.addEventListener("click", function (event) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function get_recent_posts() {
 //     $(document).ready(function () {
 //         $.ajax({
