@@ -8,7 +8,7 @@ from django.utils import timezone
 from readtime import of_html
 from subscriber.models import Subscriber
 from django.core.exceptions import ValidationError,ObjectDoesNotExist
-
+from django.db.models import Q
 
 def post(request):
     queryset = BlogPost.objects.all()
@@ -321,3 +321,45 @@ def post_by_tags_data(request, dyna_visible_tags, tag_name):
     return JsonResponse({"data":data[lower:upper],"size":posts_by_tags.count()})
 
 
+
+ 
+ 
+def post_by_search_data(request, dyna_visible_search, search_keyword):
+    print("search_keyword,", search_keyword)
+    visible = 4
+    upper = dyna_visible_search
+    lower = upper-visible
+    if  search_keyword.lower() == "null":
+        return JsonResponse({"data":"Please write something to search."})
+    
+    search_result = BlogPost.objects.filter(
+        Q(title__icontains=search_keyword) |       
+        Q(content__icontains=search_keyword) |     
+        Q(tags__name__icontains=search_keyword) |   
+        Q(category__name__icontains=search_keyword)  
+    ).distinct()
+    
+    if not search_result:
+        return  JsonResponse({"data":"no posts found"})
+     
+   
+    data=[]
+     
+    for post in search_result:
+        post_data = {
+            "id":post.id,
+            'title': post.title[:40],
+            'content': f'{post.content[:150]}...' if len(post.content) > 150 else post.content[:150],
+            'category': post.category.name if post.category else "",
+            # 'tags': [tag.name for tag in post.tags.all()],
+            'created_at': post.created_at.strftime('%d %B %Y'),
+            'featured_image_url': post.featured_image.url if post.featured_image else "",
+            'author_name': post.author.username if post.author else None,
+            'readtime': post.readtime,
+            # 'views': post.views,
+            'author_image':post.author.profile.avatar.url
+        }
+    
+        data.append(post_data)
+   
+    return JsonResponse({"data":data[lower:upper],"size":search_result.count()})

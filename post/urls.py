@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
     path('', views.post),
     path('get-featured-posts/', views.get_featured_posts),
@@ -14,6 +16,8 @@ urlpatterns = [
     path('category/<str:category_name>/posts/<int:dyna_visible_categories>/', views.post_by_categories_data),
     path('tag/<str:tag_name>/posts/', views.post_by_tags),
     path('tag/<str:tag_name>/posts/<int:dyna_visible_tags>/', views.post_by_tags_data),
+    path('posts/search/<str:search_keyword>/<int:dyna_visible_search>/', views.post_by_search_data),
+
     # path('get-recent-posts/', views.get_recent_posts),
 
 
