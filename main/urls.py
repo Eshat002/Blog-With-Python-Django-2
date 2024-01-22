@@ -16,6 +16,8 @@ urlpatterns = [
     path('about-us/', TemplateView.as_view(template_name='about_us.html')),
     path('contact/', TemplateView.as_view(template_name='contact.html')),
     path('send-message-form/', send_message_view.as_view()),
+    path('faq/', include("faq.urls")),
+
 
 
 ]

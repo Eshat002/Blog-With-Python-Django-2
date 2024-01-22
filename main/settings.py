@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'post',
     'profiles',
     'ad',
-    'subscriber'
+    'subscriber',
+    'faq'
 ]
 
 MIDDLEWARE = [
