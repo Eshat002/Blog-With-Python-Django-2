@@ -2,7 +2,7 @@ const faq_container = document.getElementById("faq-container")
 const spinner_for_faq = document.getElementById("spinner-for-faq")
 const faq_headline = document.getElementById("faq-headline")
 const faq_sub_headline = document.getElementById("faq-sub-headline")
-
+const faq_contact_info_container = document.getElementById("faq-contact-info-container")
 
 
 
@@ -26,7 +26,7 @@ function get_faqs() {
                <p class="toggle-symbol-faq">+</p>
                </div>
               <div class="collapse faq-answer-container mb-3" id="${collapseId}">
-                <div style="background:#F2F8F7" class="card border border-0 card-body">
+                <div style="background:#F2F8F7;padding-left:20px" class="card border border-0 card-body">
                 ${faq.answer}
                  </div>
               </div>`
@@ -47,6 +47,8 @@ function get_faqs() {
                         // }
                     });
                 });
+                faq_contact_info_container.classList.remove("d-none")
+
 
             }, 100);
 

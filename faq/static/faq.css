@@ -24,7 +24,7 @@
     line-height: 150%;
     border: none !important;
     margin-top: -25px !important;
-
+    /* margin-left: 5px */
     /* 22.5px */
 }
 
@@ -37,7 +37,7 @@
     line-height: 150%;
     /* 25.5px */
     text-transform: capitalize;
-    margin-left: 15px
+    margin-left: 20px
 }
 
 
@@ -83,4 +83,12 @@
     /* 29.4px */
     text-transform: capitalize;
     margin: 70px 0px 35px 0px
+}
+
+/* css media */
+
+@media screen and (max-width:500px) {
+    .faq .container-fluid {
+        width: 95%;
+    }
 }
