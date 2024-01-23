@@ -1,0 +1,45 @@
+<!-- Search Modal -->
+<div class="modal fade" id="searchModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog   modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <form class="search-form">
+                    <input placeholder="Search Posts" id="search-input-posts" type="text">
+                    <button id="posts-searching-btn" class="search-btn-posts">Search</button>
+                </form>
+
+                <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <div id="posts-by-search-posts-container"></div>
+                    <div id='spinner-for-posts-search' class='text-center d-none'>
+                        <div style="color:#00AAA1 !important;" class="spinner-border text-primary" role="status">
+                        </div>
+                    </div>
+                    <div class='text-center mt-5 mb-3'>
+                        <button class='re-load-more-btn d-none' id='load-more-search'>load more</button>
+                    </div>
+
+
+                    <div class="d-none" style="margin-top:50px" id="not-found-no-more-posts-search-container"
+                        class='text-center mb-3'>
+                        <div class="row">
+                            <div style="border-radius: 10px;
+                                background: #F2F8F7;" class="col-lg-12 p-4 me-3">
+                                <h5 class="text-center" id="not-found-no-more-posts-search"></h5>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
