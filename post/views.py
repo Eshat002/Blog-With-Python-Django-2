@@ -39,7 +39,7 @@ def get_featured_posts(request):
 
     for post in featured_posts:
         post_data = {
-            # "id":post.id,
+            # "id":post.id, 
             'title': post.title[:35],
             'content': f'{post.content[:90]}...' if len(post.content) > 90 else post.content[:90],
             'category': post.category.name if post.category else "",

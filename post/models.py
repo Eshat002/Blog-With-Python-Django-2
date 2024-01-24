@@ -33,7 +33,7 @@ class Tag(models.Model):
 
 class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, null=False, blank=False)
     content = RichTextField(null=False, blank=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,null=True)
     tags = models.ManyToManyField(Tag, blank=True, null=True)
