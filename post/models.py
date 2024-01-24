@@ -4,6 +4,9 @@ from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User   
 from django.utils import timezone
 from django.core.validators import URLValidator
+# from ckeditor_uploader.fields import RichTextUploadingField
+# from django_quill.fields import QuillField
+from ckeditor.fields import RichTextField
 
 
 
@@ -28,12 +31,10 @@ class Tag(models.Model):
     
 
 
-
-
 class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = RichTextField(null=False, blank=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,null=True)
     tags = models.ManyToManyField(Tag, blank=True, null=True)
     featured_image = models.ImageField(upload_to='featured_images/', default='featured_images/default_image.png', validators=[
@@ -52,6 +53,7 @@ class BlogPost(models.Model):
     def readtime(self):
         result = of_html(self.content)
         return result.text
+       
 
     def __str__(self):
         return self.title

@@ -17,6 +17,8 @@ urlpatterns = [
     path('contact/', TemplateView.as_view(template_name='contact.html')),
     path('send-message-form/', send_message_view.as_view()),
     path('faq/', include("faq.urls")),
+    # path('ckeditor/', include('ckeditor_uploader.urls')),
+
 
 
 

@@ -41,8 +41,17 @@ INSTALLED_APPS = [
     'profiles',
     'ad',
     'subscriber',
-    'faq'
+    'faq',
+    # 'django_quill',
+    'ckeditor',
+    # 'ckeditor_uploader'
+
+
+ 
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
