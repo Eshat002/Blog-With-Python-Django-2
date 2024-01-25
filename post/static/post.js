@@ -18,7 +18,7 @@ function get_featured_posts() {
             dataType: 'json',
             success: function (response) {
                 spinner_for_featured.classList.add("d-none")
-
+                console.log("fe", response)
                 if (response) {
                     featured_posts_headline.innerHTML = "<span class='featured-span'>Featured</span>  This month"
                 }

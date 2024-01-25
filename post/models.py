@@ -7,6 +7,7 @@ from django.core.validators import URLValidator
 # from ckeditor_uploader.fields import RichTextUploadingField
 # from django_quill.fields import QuillField
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 
@@ -44,6 +45,16 @@ class BlogPost(models.Model):
     is_featured= models.BooleanField(default=False)
     views = models.PositiveIntegerField(default=0)
     banner_after_me=models.BooleanField(default=False)
+    slug = models.SlugField(max_length=255, unique=False, blank=True)
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            if BlogPost.objects.filter(slug=self.slug).exists():
+               self.slug = slugify(f"{self.title}-{self.id}") 
+        self.slug = slugify(f"{self.title}") 
+                
+        super().save(*args, **kwargs)
 
 
     class Meta:

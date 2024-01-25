@@ -9,6 +9,11 @@ from readtime import of_html
 from subscriber.models import Subscriber
 from django.core.exceptions import ValidationError,ObjectDoesNotExist
 from django.db.models import Q
+from django.utils.safestring import mark_safe
+from django.template.defaultfilters import truncatechars_html
+
+
+
 
 def post(request):
     queryset = BlogPost.objects.all()
@@ -36,12 +41,14 @@ def post(request):
 def get_featured_posts(request):
     data = []
     featured_posts = BlogPost.objects.filter(is_featured=True)[:2]
-
+    print("fe" ,data)
     for post in featured_posts:
+        
         post_data = {
             # "id":post.id, 
             'title': post.title[:35],
-            'content': f'{post.content[:90]}...' if len(post.content) > 90 else post.content[:90],
+            # 'content': f'{post.content[:90]}...' if len(post.content) > 90 else post.content[:90],
+            'content':  truncatechars_html(post.content, 90), 
             'category': post.category.name if post.category else "",
             # 'tags': [tag.name for tag in post.tags.all()],
             'created_at': post.created_at.strftime('%d %B %Y'),
