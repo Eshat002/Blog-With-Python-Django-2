@@ -1,0 +1,138 @@
+.profile-first-section .container-fluid {
+    width: 85%;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.profile-first-section {
+    background-color: #F2F8F7;
+}
+
+.profile-first-section-data-container-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.profile-first-section-name {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 33.6px */
+    text-transform: capitalize;
+}
+
+.profile-first-section-about-me {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    /* 22.5px */
+}
+
+.profile-first-section-social-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 25.5px */
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.profile-first-section .social-container a {
+    border-radius: 50%;
+}
+
+.profile-first-section-detail-container {
+    margin-left: -40px
+}
+
+.profile-sec-section .container-fluid {
+    width: 85%;
+}
+
+
+/* css media query */
+
+@media screen and (min-width:1920px) {
+    .profile-first-section-detail-container {
+        margin-left: -130px;
+    }
+}
+
+
+@media screen and (max-width:1620px) and (min-width:1550px) {
+    .profile-first-section-detail-container {
+        margin-left: -60px;
+    }
+
+}
+
+@media screen and (max-width:1442px) {
+    .profile-first-section-detail-container {
+        margin-left: -20px
+    }
+}
+
+@media screen and (max-width:1367px) {
+
+    .profile-first-section-detail-container {
+        margin-left: 10px
+    }
+}
+
+@media screen and (max-width:991.20px) {
+    .profile-first-section-single {
+        flex-direction: column;
+    }
+
+    .profile-first-section-detail-container {
+        margin-left: 0px;
+        width: 90% !important;
+    }
+
+
+    .profile-first-section-data-container-img {
+        width: 250px;
+        height: 250px;
+
+    }
+
+
+}
+
+
+@media screen and (max-width:768px) {
+
+
+    .profile-first-section-data-container-img {
+        width: 150px;
+        height: 150px;
+
+    }
+
+
+}
+
+
+@media screen and (max-width:500px) {
+
+
+    .profile-first-section .container-fluid {
+        width: 90%;
+        padding-top: 40px
+    }
+
+
+}

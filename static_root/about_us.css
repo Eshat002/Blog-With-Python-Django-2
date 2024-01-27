@@ -1,0 +1,250 @@
+.about-us-first-section .container-fluid {
+    width: 85%;
+}
+
+.about-us-first-section {
+    background: #F2F8F7;
+    padding: 80px 0px 100px 0px
+}
+
+.about-us-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+}
+
+.about-us-headline-highlighted {
+    color: #FFF;
+    background-color: #00AAA1;
+    text-transform: capitalize;
+    padding: 0px 2px
+}
+
+.about-us-text {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 22.5px */
+}
+
+.about-us-sub-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 25.5px */
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.about-us-text-first {
+    margin-top: 25px;
+    margin-bottom: 20px
+}
+
+.about-us-sec-section .container-fluid {
+    width: 85%;
+    padding: 70px 0px
+}
+
+.about-us-author-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 7px;
+
+}
+
+.about-us-name {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 33.6px */
+    text-transform: capitalize;
+}
+
+.about-us-total-posts {
+    color: #777;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 22.5px */
+    text-transform: capitalize;
+}
+
+.about-us-author-link {
+    color: #00AAA1;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+    /* 22.5px */
+}
+
+.about-us-third-section .container-fluid {
+    width: 85%;
+}
+
+
+.banner {
+    border-radius: 10px;
+    background: #F2F8F7;
+    text-align: center;
+    padding: 50px 25px 60px 25px;
+    margin: 10px 0px 40px 0px;
+}
+
+.banner .banner-headline {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+}
+
+.banner .banner-link {
+    color: #00AAA1;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+    border: 1px solid #00AAA1;
+}
+
+
+.banner .banner-text {
+    color: #555;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 22.5px */
+    text-transform: capitalize;
+    margin: -10px 0px 35px 0px
+}
+
+
+/* css media query */
+@media screen and (min-width:1920px) {
+    #author-container-about-us .author-detail-container {
+        margin-left: 25px !important
+    }
+
+}
+
+@media screen and (min-width:1600px) and (max-width:1700px) {
+    #author-container-about-us .author-detail-container {
+        margin-left: 40px !important
+    }
+
+}
+
+@media screen and (max-width:1367px) {
+    #author-container-about-us .author-detail-container {
+        margin-left: 55px !important
+    }
+
+}
+
+
+@media screen and (max-width:991.20px) {
+    .about-us-first-section .container-fluid .about-us-sec-row {
+        text-align: left !important;
+    }
+
+    .about-us-author-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 30px !important
+    }
+
+}
+
+
+@media screen and (max-width:820px) {
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 45px !important
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .about-us-headline {
+        font-size: 23px;
+    }
+
+    .about-us-first-section .container-fluid .about-us-sec-row {
+        text-align: center !important;
+    }
+
+    .about-us-third-section .container-fluid {
+        width: 95%;
+    }
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 40px !important
+    }
+}
+
+
+@media screen and (max-width:600px) and (min-width:495px) {
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 25px !important
+    }
+}
+
+
+
+@media screen and (max-width:490px) {
+
+    .about-us-author-image {
+        width: 98px;
+        height: 98px;
+    }
+
+    .about-us-name {
+        font-size: 22px;
+    }
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 35px !important
+    }
+}
+
+
+@media screen and (max-width:400px) {
+
+    #author-container-about-us .author-detail-container {
+        margin-left: 42px !important
+    }
+}
