@@ -370,3 +370,58 @@ def post_by_search_data(request, dyna_visible_search, search_keyword):
         data.append(post_data)
    
     return JsonResponse({"data":data[lower:upper],"size":search_result.count()})
+
+
+
+def post_detail(request, slug):
+    post= BlogPost.objects.filter(slug=slug).first()
+
+    if not post:
+        return render(request, 'not_found.html', {"message":"the post you are looking for does not exist!"})
+
+
+    return render (request, "post_detail.html")
+
+
+def post_detail_data(request,slug):
+
+    post= BlogPost.objects.filter(slug=slug).first()
+    
+    if not post:
+        return  JsonResponse({"data":"post does not exist"})
+
+    data1 = {
+        "id":post.id,
+        'title': post.title,
+        'content': post.content,
+        'category': post.category.name if post.category else "",
+        # 'tags': [tag.name for tag in post.tags.all()],
+        'created_at': post.created_at.strftime('%d %B %Y'),
+        'featured_image_url': post.featured_image.url if post.featured_image else "",
+        'author_name': post.author.username if post.author else None,
+        'readtime': post.readtime,
+        # 'views': post.views,
+        'author_image':post.author.profile.avatar.url
+    }
+
+    data2=[]
+     
+    for related_post in post.related_posts.all()[:2]:
+        post_data = {
+            "id":related_post.id,
+            'title': related_post.title[:40],
+            'content': f'{related_post.content[:150]}...' if len(related_post.content) > 150 else related_post.content[:150],
+            'category': related_post.category.name if related_post.category else "",
+            # 'tags': [tag.name for tag in post.tags.all()],
+            'created_at': related_post.created_at.strftime('%d %B %Y'),
+            'featured_image_url': related_post.featured_image.url if related_post.featured_image else "",
+            'author_name': related_post.author.username if related_post.author else None,
+            'readtime': related_post.readtime,
+            # 'views': post.views,
+            'author_image':related_post.author.profile.avatar.url
+        }
+    
+        data2.append(post_data)
+   
+    return JsonResponse({"data1":data1, "data2":data2 ,"size":post.related_posts.all().count()})
+    

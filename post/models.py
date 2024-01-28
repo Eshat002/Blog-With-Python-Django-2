@@ -55,7 +55,7 @@ class BlogPost(models.Model):
 
             # Ensure slug is unique
             original_slug = self.slug
-            count = 1
+            count = 2
             while BlogPost.objects.filter(slug=self.slug).exists():
                 self.slug = f"{original_slug}-{count}"
                 count += 1
