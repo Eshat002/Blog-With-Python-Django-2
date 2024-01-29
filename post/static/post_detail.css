@@ -1,0 +1,46 @@
+.post-detail .container-fluid {
+    width: 85%;
+}
+
+.twitter-featured-image {
+    max-width: 100%;
+    max-height: 600px;
+    border-radius: 10px;
+
+
+}
+
+.post-detail .re-post-content table {
+    margin-top: 24px;
+    margin-bottom: 20px;
+    width: 100% !important;
+    border: none
+}
+
+
+
+.post-detail .re-post-content table tr {
+    background: #eef7f7;
+    height: 40px !important;
+}
+
+.post-detail .re-post-content table tr:first-child {
+    background: #DFF1F0;
+}
+
+
+
+.post-detail .re-post-content table tr td {
+    /* border-radius: 25px 5px 0px 0px; */
+    border-right: 2px solid #DFF1F0;
+    ;
+}
+
+.post-detail .re-post-content blockquote {
+    background-image: url('/static/q.png/');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    font-style: italic;
+    background-color: #F2F8F7;
+    padding: 25px 20px 7px 30px;
+}

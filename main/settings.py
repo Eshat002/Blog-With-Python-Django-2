@@ -107,6 +107,10 @@ DATABASES = {
 }
 
 
+ 
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -164,3 +168,14 @@ EMAIL_USE_TLS = True
 #     display_name="Promodtori", addr_spec="eshat@promodtori.com")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+
+
+
+
+ 
