@@ -385,32 +385,37 @@ def post_detail(request, slug):
 
 def post_detail_data(request,slug):
 
-    post= BlogPost.objects.filter(slug=slug).first()
+    post_qs= BlogPost.objects.filter(slug=slug)
     
-    if not post:
+    if not post_qs:
         return  JsonResponse({"data":"post does not exist"})
+    
+    data1=[]
 
-    data1 = {
-        "id":post.id,
-        'title': post.title,
-        'content': post.content,
-        'category': post.category.name if post.category else "",
-        # 'tags': [tag.name for tag in post.tags.all()],
-        'created_at': post.created_at.strftime('%d %B %Y'),
-        'featured_image_url': post.featured_image.url if post.featured_image else "",
-        'author_name': post.author.username if post.author else None,
-        'readtime': post.readtime,
-        # 'views': post.views,
-        'author_image':post.author.profile.avatar.url
-    }
+    for post in post_qs:
+        post_data = {
+            "id":post.id,
+            'title': post.title,
+            'content': post.content,
+            'category': post.category.name if post.category else "",
+            'tags': [tag.name for tag in post.tags.all()],
+            'created_at': post.created_at.strftime('%d %B %Y'),
+            'featured_image_url': post.featured_image.url if post.featured_image else "",
+            'author_name': post.author.username if post.author else None,
+            'readtime': post.readtime,
+            # 'views': post.views,
+            'author_image':post.author.profile.avatar.url
+        }
+
+    data1.append(post_data)
 
     data2=[]
      
-    for related_post in post.related_posts.all()[:2]:
+    for related_post in post_qs.first().related_posts.all()[:2]:
         post_data = {
             "id":related_post.id,
             'title': related_post.title[:40],
-            'content': f'{related_post.content[:150]}...' if len(related_post.content) > 150 else related_post.content[:150],
+            'content': f'{related_post.content[:90]}...' if len(related_post.content) > 90 else related_post.content[:90],
             'category': related_post.category.name if related_post.category else "",
             # 'tags': [tag.name for tag in post.tags.all()],
             'created_at': related_post.created_at.strftime('%d %B %Y'),
@@ -418,7 +423,8 @@ def post_detail_data(request,slug):
             'author_name': related_post.author.username if related_post.author else None,
             'readtime': related_post.readtime,
             # 'views': post.views,
-            'author_image':related_post.author.profile.avatar.url
+            'author_image':related_post.author.profile.avatar.url,
+            'slug':related_post.slug
         }
     
         data2.append(post_data)

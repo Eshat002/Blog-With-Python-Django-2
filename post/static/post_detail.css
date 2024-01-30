@@ -44,3 +44,17 @@
     background-color: #F2F8F7;
     padding: 25px 20px 7px 30px;
 }
+
+.post-detail .re-post-content li {
+    margin-top: 12px
+}
+
+.related-tags-link-post-detail {
+    text-decoration: none;
+    color: #00AAA1
+}
+
+.post-detail .related-posts-headline {
+    font-size: 24px;
+    margin: 60px 0px 40px 0px
+}
