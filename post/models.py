@@ -8,6 +8,7 @@ from django.core.validators import URLValidator
 # from django_quill.fields import QuillField
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
+from django.urls import reverse
 
 
 
@@ -46,6 +47,11 @@ class BlogPost(models.Model):
     banner_after_me=models.BooleanField(default=False)
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=False)
     related_posts= models.ManyToManyField("self", blank=True)
+
+    # def get_absolute_url(self):
+    #     kwargs = {'slug': self.slug}
+    #     return reverse('blog:post-detail', kwargs=kwargs)
+
 
 
     def save(self, *args, **kwargs):

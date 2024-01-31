@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-
+app_name='blog'
 
 urlpatterns = [
     path('', views.post),
@@ -17,7 +17,7 @@ urlpatterns = [
     path('tag/<str:tag_name>/posts/', views.post_by_tags),
     path('tag/<str:tag_name>/posts/<int:dyna_visible_tags>/', views.post_by_tags_data),
     path('posts/search/<str:search_keyword>/<int:dyna_visible_search>/', views.post_by_search_data),
-    path('posts/<str:slug>/', views.post_detail),
+    path('posts/<str:slug>/', views.post_detail, name='post-detail'),
     path('posts/<str:slug>/data/', views.post_detail_data),
 
 

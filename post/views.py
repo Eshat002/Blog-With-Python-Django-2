@@ -379,7 +379,7 @@ def post_detail(request, slug):
     if not post:
         return render(request, 'not_found.html', {"message":"the post you are looking for does not exist!"})
 
-
+    
     return render (request, "post_detail.html")
 
 

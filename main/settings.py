@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # 'django_quill',
     'ckeditor',
     # 'ckeditor_uploader'
+    'django_social_share'
 
 
  

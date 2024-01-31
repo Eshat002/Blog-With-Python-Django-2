@@ -58,3 +58,32 @@
     font-size: 24px;
     margin: 60px 0px 40px 0px
 }
+
+.pinterest-this .PIN_1706644248678_button_pin {
+    background: green !important;
+    color: purple !important
+}
+
+
+.post-detail .share-on-social-media {
+    display: flex;
+    justify-content: center;
+    /* gap: 18px; */
+    margin-top: -15px;
+
+
+}
+
+.post-detail .share-on-social-media>div {
+
+    background-color: white;
+    padding-right: 11px;
+    padding-left: 11px;
+    /* margin: 0 20px */
+}
+
+
+.post-detail .main-post-detail {
+    border-bottom: #D1E7E5 solid 2px;
+    padding-bottom: 50px;
+}
