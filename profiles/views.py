@@ -46,7 +46,8 @@ def author_profile_data(request, username):
         "about_me":user.profile.about_me,
         'facebook_url':user.profile.facebook_url,
         "insta_url":user.profile.instagram_url,
-        "twitter_url":user.profile.twitter_url
+        "twitter_url":user.profile.twitter_url,
+        # "view_count":user.profile.view_count
     }
 
     data2=[]

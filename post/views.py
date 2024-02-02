@@ -11,7 +11,9 @@ from django.core.exceptions import ValidationError,ObjectDoesNotExist
 from django.db.models import Q
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import truncatechars_html
-
+from django.db.models import Count
+from profiles.models import Profile
+from operator import attrgetter
 
 
 
@@ -41,7 +43,7 @@ def post(request):
 def get_featured_posts(request):
     data = []
     featured_posts = BlogPost.objects.filter(is_featured=True)[:2]
-    print("fe" ,data)
+ 
     for post in featured_posts:
         
         post_data = {
@@ -64,8 +66,10 @@ def get_featured_posts(request):
 
 
 def get_most_viewed_posts(request):
-    most_viewed_posts = BlogPost.objects.order_by('-views')[:8]
+    most_viewed_posts = BlogPost.objects.annotate(num_views=Count('view')).order_by('-num_views')[:8]
+
     data=[]
+
     for post in most_viewed_posts:
         post_data = {
             # "id":post.id,
@@ -77,7 +81,7 @@ def get_most_viewed_posts(request):
             # 'featured_image_url': post.featured_image.url if post.featured_image else "",
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
-            'views': post.views,
+            'views': View.objects.filter(post=post).count(),
             'author_image':post.author.profile.avatar.url
         }
         data.append(post_data)
@@ -139,23 +143,68 @@ def get_most_viewed_posts(request):
 
 
 def get_top_users_with_max_post_views(request):
+         
+    #     top_users = (
+    #     BlogPost.objects.annotate(view_count=Count('view'))
+    #     .values('author__username')
+    #     .order_by('-view_count')[:4]
+        
+    # )
+        # top_users = (
+        # BlogPost.objects.values('author__username')
+        # .annotate(total_views=Sum('view'))
+        # .order_by('-total_views')[:4]
+        # )
+        # print("top_",top_users)
+      
+
+        profiles = Profile.objects.all()
+
+        # Sort profiles by total views in descending order
+        sorted_profiles = sorted(profiles, key=attrgetter('total_views'), reverse=True)
+ 
+
+        print("more",sorted_profiles)
+
+        # user_objects = []
+
+        # for username in sorted_profiles:
+        #     user = User.objects.filter(username=username).first()
+        #     user_objects.append(user)
      
-    top_users_with_max_views = (
-        User.objects
-        .annotate(total_views=Sum('blogpost__views'))
-        .order_by('-total_views')[:3]
-    )
+     
+        serialized_data = []
+ 
+        for profile in sorted_profiles:
+            user_info = {'username': profile.user.username, 'about_me':profile.about_me,
+                        'profession':profile.profession,
+                        'facebook_url':profile.facebook_url,
+                        'twitter_url':profile.twitter_url,
+                        'insta_url':profile.instagram_url,
+                        'author_image':profile.avatar.url,
+                        }
+            serialized_data.append(user_info)
+
+        return JsonResponse({'data':serialized_data})
+
+        
+     
+    # top_users_with_max_views = (
+    #     User.objects
+    #     .annotate(total_views=Sum('blogpost__views'))
+    #     .order_by('-total_views')[:3]
+    # )
 
 
-    serialized_data = [{'username': user.username, 'about_me':user.profile.about_me,
-                        'profession':user.profile.profession,
-                        'facebook_url':user.profile.facebook_url,
-                        'twitter_url':user.profile.twitter_url,
-                        'insta_url':user.profile.instagram_url,
-                        'author_image':user.profile.avatar.url,
-                        'total_views': user.total_views} for user in top_users_with_max_views]
+    # serialized_data = [{'username': user.username, 'about_me':user.profile.about_me,
+    #                     'profession':user.profile.profession,
+    #                     'facebook_url':user.profile.facebook_url,
+    #                     'twitter_url':user.profile.twitter_url,
+    #                     'insta_url':user.profile.instagram_url,
+    #                     'author_image':user.profile.avatar.url,
+    #                     'total_views': user.total_views} for user in top_users_with_max_views]
 
-    return JsonResponse({'data':serialized_data})
+    # return JsonResponse({'data':serialized_data})
 
 
 
@@ -390,6 +439,8 @@ def post_detail_data(request,slug):
     if not post_qs:
         return  JsonResponse({"data":"post does not exist"})
     
+    View.objects.create(post=post_qs.first())
+     
     data1=[]
 
     for post in post_qs:

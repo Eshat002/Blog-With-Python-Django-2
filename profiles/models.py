@@ -6,7 +6,8 @@ from django.db.models.signals import post_save
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-
+from django.db.models import Sum
+from post.models import BlogPost
 
 
 class Visitor(models.Model):
@@ -24,9 +25,22 @@ class Profile(models.Model):
     facebook_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
     twitter_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
     instagram_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
-   
+
+    @property
+    def total_views(self):
+    # Get all the blog posts associated with the user
+        user_blog_posts = BlogPost.objects.filter(author=self.user)
+
+        # Calculate the total views by summing up views for each blog post
+        total_views = sum(post.view_set.all().count() for post in user_blog_posts)
+
+        return total_views
+
     def __str__(self):
-        return f"profile-{self.user.username}"
+        total_views = self.total_views
+        return f"profile-{self.user.username}-total views {total_views}"
+    
+
 
 @receiver(post_save, sender=User)
 def post_save_create_profile(sender, instance, created, *args, **kwargs):

@@ -87,6 +87,7 @@ function get_most_viewed_posts() {
     fetch('/get-most-viewed-posts/')
         .then(response => response.json())
         .then(data => {
+            console.log("duke", data)
             // Replace the static items array with the received data
             spinner_for_most_popular.classList.add("d-none")
 

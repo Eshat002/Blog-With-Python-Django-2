@@ -43,7 +43,7 @@ class BlogPost(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_featured= models.BooleanField(default=False)
-    views = models.PositiveIntegerField(default=0)
+    # views = models.PositiveIntegerField(default=0)
     banner_after_me=models.BooleanField(default=False)
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=False)
     related_posts= models.ManyToManyField("self", blank=True)
@@ -77,9 +77,19 @@ class BlogPost(models.Model):
         result = of_html(self.content)
         return result.text
        
-
+    
     def __str__(self):
-        return self.title
+        return f"title-{self.title} - total views-{self.view_set.all().count()}"
+
+
+
+class View(models.Model):
+    post=models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    created= models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.post.title
+
 
 
 class InstaPost(models.Model):
