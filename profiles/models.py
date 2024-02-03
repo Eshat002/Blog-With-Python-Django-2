@@ -26,6 +26,10 @@ class Profile(models.Model):
     twitter_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
     instagram_url = models.URLField(validators=[URLValidator()], blank=True, null=True)
 
+
+    class Meta:
+        ordering= ["-id"]
+
     @property
     def total_views(self):
     # Get all the blog posts associated with the user
@@ -40,6 +44,7 @@ class Profile(models.Model):
         total_views = self.total_views
         return f"profile-{self.user.username}-total views {total_views}"
     
+
 
 
 @receiver(post_save, sender=User)

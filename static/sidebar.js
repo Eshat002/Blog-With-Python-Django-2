@@ -195,7 +195,7 @@ function get_todays_update() {
                 ${response.data.blog_read}
                 </p>
                 <p class='todays_update_text'>
-                blog read
+                blog read(min)
                 </p>
                 </div>
                 

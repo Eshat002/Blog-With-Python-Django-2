@@ -9,7 +9,7 @@ from django.core.validators import URLValidator
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.urls import reverse
-
+import re
 
 
 class Category(models.Model):
@@ -72,14 +72,27 @@ class BlogPost(models.Model):
     class Meta:
         ordering = ['-id']
 
+ 
     @property
     def readtime(self):
         result = of_html(self.content)
         return result.text
-       
     
-    def __str__(self):
-        return f"title-{self.title} - total views-{self.view_set.all().count()}"
+
+    @property
+    def readtime_without_min(self):
+        result = of_html(self.content)
+        time_text = result.text
+
+        # Extracting only numeric characters using regular expression
+        numeric_part = re.search(r'\d+', time_text)
+
+        if numeric_part:
+            return int(numeric_part.group())
+        else:
+            # Handle the case when no numeric part is found
+            return 0  # You can modify this according to your needs
+
 
 
 

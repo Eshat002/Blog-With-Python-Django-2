@@ -126,3 +126,20 @@ function get_post_detail_data() {
 }
 
 get_post_detail_data()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

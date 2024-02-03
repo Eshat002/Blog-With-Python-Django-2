@@ -144,34 +144,10 @@ def get_most_viewed_posts(request):
 
 def get_top_users_with_max_post_views(request):
          
-    #     top_users = (
-    #     BlogPost.objects.annotate(view_count=Count('view'))
-    #     .values('author__username')
-    #     .order_by('-view_count')[:4]
-        
-    # )
-        # top_users = (
-        # BlogPost.objects.values('author__username')
-        # .annotate(total_views=Sum('view'))
-        # .order_by('-total_views')[:4]
-        # )
-        # print("top_",top_users)
-      
-
         profiles = Profile.objects.all()
 
-        # Sort profiles by total views in descending order
-        sorted_profiles = sorted(profiles, key=attrgetter('total_views'), reverse=True)
- 
-
-        print("more",sorted_profiles)
-
-        # user_objects = []
-
-        # for username in sorted_profiles:
-        #     user = User.objects.filter(username=username).first()
-        #     user_objects.append(user)
-     
+        sorted_profiles = sorted(profiles, key=attrgetter('total_views'), reverse=True)[:3]
+        print("()",sorted_profiles)
      
         serialized_data = []
  
@@ -189,22 +165,7 @@ def get_top_users_with_max_post_views(request):
 
         
      
-    # top_users_with_max_views = (
-    #     User.objects
-    #     .annotate(total_views=Sum('blogpost__views'))
-    #     .order_by('-total_views')[:3]
-    # )
-
-
-    # serialized_data = [{'username': user.username, 'about_me':user.profile.about_me,
-    #                     'profession':user.profile.profession,
-    #                     'facebook_url':user.profile.facebook_url,
-    #                     'twitter_url':user.profile.twitter_url,
-    #                     'insta_url':user.profile.instagram_url,
-    #                     'author_image':user.profile.avatar.url,
-    #                     'total_views': user.total_views} for user in top_users_with_max_views]
-
-    # return JsonResponse({'data':serialized_data})
+   
 
 
 
@@ -228,14 +189,21 @@ def todays_update(request):
     total_visitors = Visitor.objects.filter(visit_time__date=today).count()
     todays_posts=BlogPost.objects.filter(created_at__date=today).count()
     todays_subscribers = Subscriber.objects.filter(created__date=today).count()
+    
+    todays_view= View.objects.filter(created__date=today)
+    
+    total_blog_read_today = 0
 
+    for view in todays_view:
+        total_blog_read_today += view.post.readtime_without_min
+        # print("sec",view.post.readtime_in_sec)
 
 
     data = {
         'total_visitors':total_visitors,
         'todays_posts':todays_posts,
         'new_subscribers':todays_subscribers,
-        'blog_read':360
+        'blog_read':total_blog_read_today
 
     }
    
