@@ -93,7 +93,9 @@ class BlogPost(models.Model):
             # Handle the case when no numeric part is found
             return 0  # You can modify this according to your needs
 
-
+    
+    def __str__(self):
+        return f"title-{self.title} - total views-{self.view_set.all().count()}"
 
 
 class View(models.Model):

@@ -147,8 +147,7 @@ def get_top_users_with_max_post_views(request):
         profiles = Profile.objects.all()
 
         sorted_profiles = sorted(profiles, key=attrgetter('total_views'), reverse=True)[:3]
-        print("()",sorted_profiles)
-     
+      
         serialized_data = []
  
         for profile in sorted_profiles:

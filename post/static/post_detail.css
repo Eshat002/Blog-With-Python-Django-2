@@ -87,3 +87,36 @@
     border-bottom: #D1E7E5 solid 2px;
     padding-bottom: 50px;
 }
+
+.og-post-time-container-post-detail {
+
+    border-left: none;
+    display: block !important;
+    margin-left: -7px !important;
+    margin-bottom: -3px !important;
+}
+
+
+/* css media */
+
+
+@media screen and (max-width:991.20px) {
+    .post-detail .container-fluid .row .col-lg-8 {
+        padding-right: 0px !important
+    }
+
+}
+
+
+@media screen and (max-width:490px) {
+    .post-detail .container-fluid {
+        width: 95%;
+        padding-right: 23px !important;
+    }
+
+    .related-posts-headline {
+        font-size: 22px !important;
+        margin-bottom: 30px !important;
+    }
+
+}

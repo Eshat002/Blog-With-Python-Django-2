@@ -3,6 +3,7 @@ const related_tags_post_detail = document.getElementById("related-tags-post-deta
 const related_tags_headline_post_detail = document.getElementById("related-tags-headline-post-detail")
 const related_posts_container_post_detail = document.getElementById("related-posts-container-post-detail")
 const related_posts_headline_post_detail = document.getElementById("related-posts-headline-post-detail")
+const spinner_for_post_detail = document.getElementById("spinner-for-post-detail")
 
 
 currentUrl = window.location.href
@@ -15,6 +16,9 @@ function get_post_detail_data() {
         method: "GET",
         dataType: "json",
         success: function (response) {
+
+            spinner_for_post_detail.classList.add('d-none')
+
             console.log("detail", response)
             for (const post of response.data1) {
                 post_container_post_detail.innerHTML += `<div>
@@ -37,15 +41,17 @@ function get_post_detail_data() {
                                     </span>
                                 </div>
 
-                                <div class="d-flex px-2 re-post-time-container">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                        <path d="M6 0C2.6916 0 0 2.6916 0 6C0 9.3084 2.6916 12 6 12C9.3084 12 12 9.3084 12 6C12 2.6916 9.3084 0 6 0ZM6 10.8C3.3534 10.8 1.2 8.6466 1.2 6C1.2 3.3534 3.3534 1.2 6 1.2C8.6466 1.2 10.8 3.3534 10.8 6C10.8 8.6466 8.6466 10.8 6 10.8Z" fill="#555555"></path>
-                                        <path d="M6.60002 3H5.40002V6.2484L7.37582 8.2242L8.22422 7.3758L6.60002 5.7516V3Z" fill="#555555"></path>
-                                    </svg><span class="re-post-details-text"> ${post.readtime} Read </span>
-                                </div>
+                              
 
                             </div>
                             <img  class='twitter-featured-image  mt-4 mb-2' alt='featured-image' src="${post.featured_image_url}">
+                            <div class="d-flex px-2 re-post-time-container og-post-time-container-post-detail">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M6 0C2.6916 0 0 2.6916 0 6C0 9.3084 2.6916 12 6 12C9.3084 12 12 9.3084 12 6C12 2.6916 9.3084 0 6 0ZM6 10.8C3.3534 10.8 1.2 8.6466 1.2 6C1.2 3.3534 3.3534 1.2 6 1.2C8.6466 1.2 10.8 3.3534 10.8 6C10.8 8.6466 8.6466 10.8 6 10.8Z" fill="#555555"></path>
+                                <path d="M6.60002 3H5.40002V6.2484L7.37582 8.2242L8.22422 7.3758L6.60002 5.7516V3Z" fill="#555555"></path>
+                            </svg><span class="re-post-details-text"> ${post.readtime} Read </span>
+                        </div>
+
                             <div class="re-post-content">
                             ${post.content}
                              </div>
@@ -67,7 +73,7 @@ function get_post_detail_data() {
 
 
                 for (const related_post of response.data2) {
-                    related_posts_container_post_detail.innerHTML += `<div style="cursor:pointer" onclick="window.location.href='/posts/${related_post.slug}/'" class='col-lg-6'>   
+                    related_posts_container_post_detail.innerHTML += `<div style="cursor:pointer" onclick="window.location.href='/posts/${related_post.slug}/'" class='col-lg-6 col-md-6 mb-2'>   
                 <div class='related-single-post-container'>
                 <div class='related-posts-image-container'>
                <img class='re-featured-image' src="${related_post.featured_image_url}" alt="featured-image">
@@ -76,7 +82,7 @@ function get_post_detail_data() {
                 <span class="re-post-category-span">${related_post.category}</span>
                 
                </p>
-                <h2 class='re-post-title'> ${related_post.title} </h2>
+                <h2 style="margin-bottom:15px" class='re-post-title'> ${related_post.title} </h2>
                
                 <div class="re-post-details d-flex">
                                <div class="d-flex pe-2">
@@ -113,6 +119,8 @@ function get_post_detail_data() {
                 }
 
             }
+
+
 
 
 

@@ -10,10 +10,16 @@
 
 
 {% block content %}
+
 <div class="post-detail">
     <div class="container-fluid">
         <div class="row">
             <div style="padding-right:50px" class="col-lg-8">
+                <div class="spinner-container text-center mt-4">
+                    <div id="spinner-for-post-detail" style="color:#00AAA1" class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <div class="main-post-detail">
                     <div id="post-container-post-detail"></div>
                     <h6 class="mt-3" id="related-tags-headline-post-detail"></h6>
@@ -61,7 +67,7 @@
 
 
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 mt-4">
                 {% include 'sidebar.html' %}
             </div>
         </div>
