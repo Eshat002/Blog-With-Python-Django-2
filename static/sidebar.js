@@ -90,6 +90,7 @@ function get_ad() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+
                 spinner_for_ad.classList.add('d-none')
 
                 if (response.data.show == true) {

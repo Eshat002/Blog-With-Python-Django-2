@@ -48,7 +48,7 @@ def get_featured_posts(request):
         
         post_data = {
             # "id":post.id, 
-            'title': post.title[:35],
+            'title': truncatechars_html(post.title, 35),
             # 'content': f'{post.content[:90]}...' if len(post.content) > 90 else post.content[:90],
             'content':  truncatechars_html(post.content, 90), 
             'category': post.category.name if post.category else "",

@@ -5,7 +5,9 @@ from django.http import JsonResponse
 
 def ad(request):
     ad=Ad.objects.all().first()
-    print("ad", ad)
+    if not ad:
+        return JsonResponse({"data":"No ad exists"})
+    
     # data=[]
     # for ad in ads:
     data = {
