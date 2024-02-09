@@ -62,7 +62,8 @@ def author_profile_data(request, username):
             'featured_image_url': post.featured_image.url if post.featured_image else "",
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
-            'author_image': post.author.profile.avatar.url
+            'author_image': post.author.profile.avatar.url,
+            'slug':post.slug,
         }
 
         data2.append(post_data)

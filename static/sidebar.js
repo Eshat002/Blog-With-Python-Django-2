@@ -40,7 +40,8 @@ function get_top_authors() {
                     </div>
 
                     <div style="width:80%" class='top-author-detail-container ms-2'>
-                    <h3 class='top-author-name'> ${data.username}</h3>
+                    <a style="text-decoration:none" href="/profiles/${data.username}/">
+                    <h3 class='top-author-name'> ${data.username}  </h3></a>
                     <p class='top-author-profession'>${data.profession} </p>
                     <div class='social-container'>
                     <a style="background-color:#00AAA1; border:none; padding-left:6px;padding-right:2px" href='${data.facebook_url}' class='facebook-url'>
@@ -98,7 +99,7 @@ function get_ad() {
                 <p  class='text-end ad-sticker'>Ad</p>              
                  <h2 class='sidebar-ad-title'>${response.data.title}</h2>
                  <p class='sidebar-ad-des'>${response.data.des} </p>
-                 <a href='${response.data.ad_url}' class='sidebar-ad-link'>Visit Us </a>
+                 <a target="_blank" href='${response.data.ad_url}' class='sidebar-ad-link'>Visit Us </a>
                     </div>`;
                 }
 

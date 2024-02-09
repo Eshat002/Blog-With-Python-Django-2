@@ -57,7 +57,8 @@ def get_featured_posts(request):
             'featured_image_url': post.featured_image.url if post.featured_image else "",
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
-            'author_image': post.author.profile.avatar.url
+            'author_image': post.author.profile.avatar.url,
+            'slug':post.slug
         }
         data.append(post_data)
 
@@ -82,7 +83,8 @@ def get_most_viewed_posts(request):
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
             'views': View.objects.filter(post=post).count(),
-            'author_image':post.author.profile.avatar.url
+            'author_image':post.author.profile.avatar.url,
+            'slug':post.slug
         }
         data.append(post_data)
 
@@ -284,7 +286,8 @@ def post_by_categories_data(request,dyna_visible_categories, category_name):
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
             # 'views': post.views,
-            'author_image':post.author.profile.avatar.url
+            'author_image':post.author.profile.avatar.url,
+            'slug': post.slug,
         }
     
         data.append(post_data)
@@ -336,7 +339,8 @@ def post_by_tags_data(request, dyna_visible_tags, tag_name):
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
             # 'views': post.views,
-            'author_image':post.author.profile.avatar.url
+            'author_image':post.author.profile.avatar.url,
+            'slug':post.slug
         }
     
         data.append(post_data)
@@ -380,7 +384,8 @@ def post_by_search_data(request, dyna_visible_search, search_keyword):
             'author_name': post.author.username if post.author else None,
             'readtime': post.readtime,
             # 'views': post.views,
-            'author_image':post.author.profile.avatar.url
+            'author_image':post.author.profile.avatar.url,
+            'slug':post.slug
         }
     
         data.append(post_data)

@@ -95,7 +95,7 @@ class BlogPost(models.Model):
 
     
     def __str__(self):
-        return f"title-{self.title} - total views-{self.view_set.all().count()}"
+        return f"title-{self.title} - total views-{self.view_set.all().count()}-{self.author.username}"
 
 
 class View(models.Model):

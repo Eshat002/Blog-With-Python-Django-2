@@ -17,6 +17,12 @@ urlpatterns = [
     path('contact/', TemplateView.as_view(template_name='contact.html')),
     path('send-message-form/', send_message_view.as_view()),
     path('faq/', include("faq.urls")),
+    path('tos/', TemplateView.as_view(template_name='tos.html')),
+    path('privacy-policy/', TemplateView.as_view(template_name='pp.html')),
+    path('support/', TemplateView.as_view(template_name='support.html')),
+
+
+
     # path('ckeditor/', include('ckeditor_uploader.urls')),
 
 

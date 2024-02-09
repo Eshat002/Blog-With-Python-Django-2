@@ -97,7 +97,7 @@ function get_ad() {
                 <p  class='text-end ad-sticker'>Ad</p>              
                  <h2 class='sidebar-ad-title'>${response.data.title}</h2>
                  <p class='sidebar-ad-des'>${response.data.des} </p>
-                 <a href='${response.data.ad_url}' class='sidebar-ad-link'>Visit Us </a>
+                 <a href='${response.data.ad_url}' class='sidebar-ad-link' target="_blank" >Visit Uss </a>
                     </div>`;
                 }
 
