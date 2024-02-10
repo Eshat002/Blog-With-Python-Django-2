@@ -33,10 +33,11 @@ class send_message_view(View):
             print("validated")
            
             subject = subject
-            body = body
+            # body = body
+            email_body = f"Email sent from: {email}\n\n{body}"  # Including from_email in the body
             to_email = to_email
             from_email = "nolanvenus33@gmail.com"
-            email = EmailMessage(subject, body, from_email, to_email)
+            email = EmailMessage(subject, email_body, from_email, to_email)
             email.send()
             print("not prevented")
           
