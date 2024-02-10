@@ -159,7 +159,7 @@ MEDIA_ROOT = BASE_DIR / 'media_root'
 
 
 # sending email
-
+EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')

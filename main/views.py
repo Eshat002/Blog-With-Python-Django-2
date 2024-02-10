@@ -35,7 +35,7 @@ class send_message_view(View):
             subject = subject
             body = body
             to_email = to_email
-            from_email = email
+            from_email = "nolanvenus33@gmail.com"
             email = EmailMessage(subject, body, from_email, to_email)
             email.send()
             print("not prevented")
