@@ -3,6 +3,8 @@ from django.db.models import Count
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponse
 from post.models import BlogPost
+from django.template.defaultfilters import truncatechars_html
+
 
 def author_with_most_posts(request):
     authors = User.objects.annotate(post_count=Count('blogpost')).order_by('-post_count')[:6]
@@ -54,8 +56,8 @@ def author_profile_data(request, username):
   
     for post in posts:
         post_data = {
-            'title': post.title[:35],
-            'content': f'{post.content[:90]}...' if len(post.content) > 90 else post.content[:90],
+            'title': truncatechars_html(post.title,35),
+            'content': truncatechars_html(post.content,90),
             'category': post.category.name if post.category else "",
             # 'tags': [tag.name for tag in post.tags.all()],
             'created_at': post.created_at.strftime('%d %B %Y'),

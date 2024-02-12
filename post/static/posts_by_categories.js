@@ -33,7 +33,7 @@ const get_posts_by_categories = () => {
                         <h2 class='re-post-title'>${data.title}</h2>
                         <div class="re-post-details d-flex">
                                 <div class="d-flex pe-2">
-                                    <img class="re-post-author-image" alt="author-image" src="/media/avatars/girl-748932_640.jpg">
+                                    <img class="re-post-author-image" alt="author-image" src="${data.author_image}">
                                     <span class="re-post-details-text">
                                        ${data.author_name}
                                         <span>

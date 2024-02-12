@@ -27,6 +27,7 @@ function get_top_authors() {
             dataType: 'json',
             success: function (response) {
 
+
                 spinner_for_top_authors.classList.add('d-none')
                 top_authors_headline.innerHTML = `<span class="top-authors-span">top</span> authors`
 
@@ -66,9 +67,9 @@ function get_top_authors() {
 
                     </div>`;
 
-
-
                 }
+
+
             },
 
             error: function (error) {
@@ -102,6 +103,9 @@ function get_ad() {
                  <a target="_blank" href='${response.data.ad_url}' class='sidebar-ad-link'>Visit Us </a>
                     </div>`;
                 }
+
+
+
 
             },
 
