@@ -1,0 +1,10 @@
+.support .container-fluid {
+    width: 85%;
+}
+
+@media screen and (max-width:500px) {
+    .support .container-fluid {
+        width: 95%;
+    }
+
+}

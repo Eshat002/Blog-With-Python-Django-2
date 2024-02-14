@@ -25,7 +25,7 @@ function get_featured_posts() {
 
                 for (const post of response.featured_posts) {
 
-                    featured_posts_container.innerHTML += `<div class='single-featured-post'>  
+                    featured_posts_container.innerHTML += `<div style="cursor:pointer" onclick="window.location.href='/posts/${post.slug}/'" class='single-featured-post'>  
                     <p class='featured-post-category'><span style='background:#00AAA1; border-radius:3px; padding:1px 5px'>${post.category}<span></p>
                     <h2 class="featured-post-title" >${post.title}</h2>
                     <img class='featured-image' src=${post.featured_image_url} alt='featured-image'>
@@ -87,6 +87,7 @@ function get_most_viewed_posts() {
     fetch('/get-most-viewed-posts/')
         .then(response => response.json())
         .then(data => {
+            console.log("duke", data)
             // Replace the static items array with the received data
             spinner_for_most_popular.classList.add("d-none")
 
@@ -114,7 +115,7 @@ function get_most_viewed_posts() {
                 // Populate the slide with items
                 slideItems.forEach(item => {
                     const itemElement = document.createElement('div');
-                    itemElement.innerHTML = `<div class='item-element mb-4'>
+                    itemElement.innerHTML = `<div style="cursor:pointer" onclick="window.location.href='/posts/${item.slug}/'" class='item-element mb-4'>
                     <p class='post-category'> 
                     <span class='post-category-span'> ${item.category}</span> 
                    </p>

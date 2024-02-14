@@ -24,7 +24,7 @@ const get_posts_by_tags = () => {
                 datas = response.data
                 datas.forEach(function (data) {
                     post_by_tags_posts_container.innerHTML += `
-                    <div style="margin-bottom:30px" class='row gx-4'> 
+                    <div onclick="window.location.href='/posts/${data.slug}/'" style="margin-bottom:30px;cursor:pointer" class='row gx-4'> 
                     <div class='col-lg-3'>
                     <img  class='re-featured-image' alt='avatar' src="${data.featured_image_url}">
                     </div>
@@ -33,7 +33,7 @@ const get_posts_by_tags = () => {
                         <h2 class='re-post-title'>${data.title}</h2>
                         <div class="re-post-details d-flex">
                                 <div class="d-flex pe-2">
-                                    <img class="re-post-author-image" alt="author-image" src="/media/avatars/girl-748932_640.jpg">
+                                    <img class="re-post-author-image" alt="author-image" src="${data.author_image}">
                                     <span class="re-post-details-text">
                                        ${data.author_name}
                                         <span>

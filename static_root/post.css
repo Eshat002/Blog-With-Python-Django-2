@@ -526,4 +526,23 @@
     }
 
 
+    .recent-post-previous-btn {
+        padding: 4px 13px 6px 18px;
+        margin-right: 4px !important
+    }
+
+    /* .recent-post-next-btn {
+        padding: 5px 15px 7px 15px;
+
+    }   */
+
+    .recent-post-previous-btn .prev-span {
+        display: none;
+    }
+
+    .recent-post-next-btn .next-span {
+        display: none;
+    }
+
+
 }

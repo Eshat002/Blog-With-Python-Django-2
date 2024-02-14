@@ -1,0 +1,127 @@
+.post-detail .container-fluid {
+    width: 85%;
+}
+
+.twitter-featured-image {
+    max-width: 100%;
+    max-height: 600px;
+    border-radius: 10px;
+
+
+}
+
+.post-detail .re-post-content table {
+    margin-top: 24px;
+    margin-bottom: 20px;
+    width: 100% !important;
+    border: none
+}
+
+
+
+.post-detail .re-post-content table tr {
+    background: #eef7f7;
+    height: 40px !important;
+}
+
+.post-detail .re-post-content table tr:first-child {
+    background: #DFF1F0;
+}
+
+
+
+.post-detail .re-post-content table tr td {
+    /* border-radius: 25px 5px 0px 0px; */
+    border-right: 2px solid #DFF1F0;
+    ;
+}
+
+.post-detail .re-post-content blockquote {
+    background-image: url('/static/q.png/');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    font-style: italic;
+    background-color: #F2F8F7;
+    padding: 25px 20px 7px 30px;
+}
+
+.post-detail .re-post-content li {
+    margin-top: 12px
+}
+
+.related-tags-link-post-detail {
+    text-decoration: none;
+    color: #00AAA1
+}
+
+.post-detail .related-posts-headline {
+    font-size: 24px;
+    margin: 60px 0px 40px 0px
+}
+
+.pinterest-this .PIN_1706644248678_button_pin {
+    background: green !important;
+    color: purple !important
+}
+
+
+.post-detail .share-on-social-media {
+    display: flex;
+    justify-content: center;
+    /* gap: 18px; */
+    margin-top: -15px;
+
+
+}
+
+.post-detail .share-on-social-media>div {
+
+    background-color: white;
+    padding-right: 11px;
+    padding-left: 11px;
+    /* margin: 0 20px */
+}
+
+
+.post-detail .main-post-detail {
+    border-bottom: #D1E7E5 solid 2px;
+    padding-bottom: 50px;
+}
+
+.og-post-time-container-post-detail {
+
+    border-left: none;
+    display: block !important;
+    margin-left: -7px !important;
+    margin-bottom: -3px !important;
+}
+
+.post-detail .re-post-content .marker {
+    color: #00AAA1 !important
+}
+
+
+
+/* css media */
+
+
+@media screen and (max-width:991.20px) {
+    .post-detail .container-fluid .row .col-lg-8 {
+        padding-right: 0px !important
+    }
+
+}
+
+
+@media screen and (max-width:490px) {
+    .post-detail .container-fluid {
+        width: 95%;
+        padding-right: 23px !important;
+    }
+
+    .related-posts-headline {
+        font-size: 22px !important;
+        margin-bottom: 30px !important;
+    }
+
+}
