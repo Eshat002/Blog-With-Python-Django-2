@@ -1,0 +1,94 @@
+.faq .container-fluid {
+    width: 85%;
+}
+
+.faq {
+    margin-top: 60px
+}
+
+.faq-question-container {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    background: #DFF1F0;
+    align-items: center;
+    padding-top: 15px
+}
+
+.faq-answer-container {
+    color: #666;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    border: none !important;
+    margin-top: -25px !important;
+    /* margin-left: 5px */
+    /* 22.5px */
+}
+
+.faq-question-para {
+    color: #222;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 25.5px */
+    text-transform: capitalize;
+    margin-left: 20px
+}
+
+
+.toggle-symbol-faq {
+    font-size: 25px;
+    color: #00AAA1
+}
+
+#faq-sub-headline {
+    color: #666;
+    font-family: "Noto Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: -25px;
+    margin-bottom: 40px
+        /* 22.5px */
+}
+
+.faq-contact-us {
+    color: #00AAA1;
+    font-family: "Noto Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 6px;
+    border: 1px solid #00AAA1;
+}
+
+.faq-headline-2 {
+    color: #333;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* 29.4px */
+    text-transform: capitalize;
+    margin: 70px 0px 35px 0px
+}
+
+/* css media */
+
+@media screen and (max-width:500px) {
+    .faq .container-fluid {
+        width: 95%;
+    }
+}
