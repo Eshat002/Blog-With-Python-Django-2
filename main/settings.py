@@ -34,7 +34,9 @@ INSTALLED_APPS = [
     # 'django_quill',
     'ckeditor',
     # 'ckeditor_uploader'
-    'django_social_share'
+    'django_social_share',
+    'storages',
+
 
 
  
@@ -55,7 +57,7 @@ CKEDITOR_CONFIGS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -143,13 +145,26 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'static_root'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media_root'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+
+#accessing aws and s3 bucket
+DEFAULT_FILE_STORAGE= "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_STORAGE="storages.backends.s3boto3.S3StaticStorage"
+AWS_ACCESS_KEY_ID=config("AWS_ACCESS_KEY_ID")
+
+AWS_SECRET_ACCESS_KEY= config("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=config("AWS_STORAGE_BUCKET_NAME")
+AWS_QUERYSTRING_AUTH= config("AWS_QUERYSTRING_AUTH", cast=bool)  
+
+AWS_DEFAULT_ACL= None
+
 
 
 
