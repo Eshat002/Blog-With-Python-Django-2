@@ -21,11 +21,7 @@ urlpatterns = [
     path('privacy-policy/', TemplateView.as_view(template_name='pp.html')),
     path('support/', TemplateView.as_view(template_name='support.html')),
 
-
-
     # path('ckeditor/', include('ckeditor_uploader.urls')),
-
-
 
 
 ]
