@@ -155,15 +155,15 @@ MEDIA_ROOT = BASE_DIR / 'media_root'
 
 
 #accessing aws and s3 bucket
-DEFAULT_FILE_STORAGE= "storages.backends.s3boto3.S3Boto3Storage"
-STATICFILES_STORAGE="storages.backends.s3boto3.S3StaticStorage"
-AWS_ACCESS_KEY_ID=config("AWS_ACCESS_KEY_ID")
+# DEFAULT_FILE_STORAGE= "storages.backends.s3boto3.S3Boto3Storage"
+# STATICFILES_STORAGE="storages.backends.s3boto3.S3StaticStorage"
+# AWS_ACCESS_KEY_ID=config("AWS_ACCESS_KEY_ID")
 
-AWS_SECRET_ACCESS_KEY= config("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME=config("AWS_STORAGE_BUCKET_NAME")
-AWS_QUERYSTRING_AUTH= config("AWS_QUERYSTRING_AUTH", cast=bool)  
+# AWS_SECRET_ACCESS_KEY= config("AWS_SECRET_ACCESS_KEY")
+# AWS_STORAGE_BUCKET_NAME=config("AWS_STORAGE_BUCKET_NAME")
+# AWS_QUERYSTRING_AUTH= config("AWS_QUERYSTRING_AUTH", cast=bool)  
 
-AWS_DEFAULT_ACL= None
+# AWS_DEFAULT_ACL= None
 
 
 
