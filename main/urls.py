@@ -6,6 +6,7 @@ from subscriber.views import subscribe
 from django.views.generic import TemplateView
 from .views import send_message_view
  
+ 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('post.urls')),
@@ -26,5 +27,9 @@ urlpatterns = [
 
 ]
 
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+ 
