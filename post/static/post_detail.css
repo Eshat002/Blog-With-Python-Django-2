@@ -100,7 +100,11 @@
     color: #00AAA1 !important
 }
 
-
+.post-detail .share-on-social-media .copy-this button {
+    background-color: transparent;
+    border: none;
+    /* margin-top: -53px !important; */
+}
 
 /* css media */
 
