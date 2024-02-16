@@ -1,6 +1,6 @@
 from decouple import config
 from pathlib import Path
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -104,9 +104,18 @@ DATABASES = {
 }
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': config('ENGINE'),
+        'NAME': config('NAME'),
+        'USER':  config('USER'),
+        'PASSWORD': config('PASSWORD'),
+        'HOST': config('HOST'),  # Or your MySQL server's IP address
+        'PORT': config('PORT')       # Default MySQL port
+    }
+}
+
  
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -154,16 +163,16 @@ MEDIA_ROOT = BASE_DIR / 'media_root'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 
-#accessing aws and s3 bucket
-# DEFAULT_FILE_STORAGE= "storages.backends.s3boto3.S3Boto3Storage"
-# STATICFILES_STORAGE="storages.backends.s3boto3.S3StaticStorage"
-# AWS_ACCESS_KEY_ID=config("AWS_ACCESS_KEY_ID")
+# accessing aws and s3 bucket
+DEFAULT_FILE_STORAGE= "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_STORAGE="storages.backends.s3boto3.S3StaticStorage"
+AWS_ACCESS_KEY_ID=config("AWS_ACCESS_KEY_ID")
 
-# AWS_SECRET_ACCESS_KEY= config("AWS_SECRET_ACCESS_KEY")
-# AWS_STORAGE_BUCKET_NAME=config("AWS_STORAGE_BUCKET_NAME")
-# AWS_QUERYSTRING_AUTH= config("AWS_QUERYSTRING_AUTH", cast=bool)  
+AWS_SECRET_ACCESS_KEY= config("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=config("AWS_STORAGE_BUCKET_NAME")
+AWS_QUERYSTRING_AUTH= config("AWS_QUERYSTRING_AUTH", cast=bool)  
 
-# AWS_DEFAULT_ACL= None
+AWS_DEFAULT_ACL= None
 
 
 
@@ -183,11 +192,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+
+
+ #calculating amout of data in dbsqlite3
+
+# import os
  
+# def get_database_size():
+#     db_file = BASE_DIR / 'db.sqlite3' # Replace this with the path to your SQLite database file
+#     if os.path.exists(db_file):
+#         # Get the size of the file in bytes
+#         size_in_bytes = os.path.getsize(db_file)
+#         # Convert bytes to megabytes
+#         size_in_mb = size_in_bytes / (1024 * 1024)
+#         return size_in_mb
+#     else:
+#         return None
 
-
-
-
-
-
- 
+# # Example usage
+# db_size_mb = get_database_size()
+# if db_size_mb is not None:
+#     print(f"The size of the database is approximately {db_size_mb:.2f} MB.")
+# else:
+#     print("Database file not found.")
