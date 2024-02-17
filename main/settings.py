@@ -115,6 +115,10 @@ DATABASES = {
 #     }
 # }
 
+
+DATABASES = {
+    'default': dj_database_url.parse(config("mysql_uri"))
+}
  
 
 # Password validation
