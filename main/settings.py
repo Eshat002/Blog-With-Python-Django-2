@@ -104,16 +104,16 @@ DATABASES = {
 }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('ENGINE'),
-        'NAME': config('NAME'),
-        'USER':  config('USER'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),  # Or your MySQL server's IP address
-        'PORT': config('PORT')       # Default MySQL port
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('ENGINE'),
+#         'NAME': config('NAME'),
+#         'USER':  config('USER'),
+#         'PASSWORD': config('PASSWORD'),
+#         'HOST': config('HOST'),  # Or your MySQL server's IP address
+#         'PORT': config('PORT')       # Default MySQL port
+#     }
+# }
 
  
 
