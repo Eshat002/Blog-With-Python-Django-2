@@ -27,7 +27,7 @@ function get_post_detail_data() {
 
                 <div class="re-post-details d-flex">
                                 <div class="d-flex pe-2">
-                                    <img class="re-post-author-image" alt="author-image" src="/media/avatars/girl-748932_640.jpg">
+                                    <img class="re-post-author-image" alt="author-image" src="${post.author_image}">
                                     <span class="re-post-details-text">
                                        ${post.author_name}
                                         <span>
