@@ -352,11 +352,12 @@ def post_by_tags_data(request, dyna_visible_tags, tag_name):
  
  
 def post_by_search_data(request, dyna_visible_search, search_keyword):
-    print("search_keyword,", search_keyword)
+    search_keyword=search_keyword.strip() 
+    print("search_keyword", search_keyword)
     visible = 8
     upper = dyna_visible_search
     lower = upper-visible
-    if  search_keyword.lower() == "null":
+    if  search_keyword.lower() == "null" or search_keyword == "":
         return JsonResponse({"data":"Please write something to search."})
     
     search_result = BlogPost.objects.filter(
