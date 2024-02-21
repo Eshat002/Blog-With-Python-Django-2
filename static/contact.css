@@ -4,6 +4,10 @@
     padding-bottom: 70px;
 }
 
+.contact-us-first-section {
+    min-height: 720px;
+}
+
 
 #send-msg-form input,
 textarea {

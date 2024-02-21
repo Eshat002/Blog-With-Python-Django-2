@@ -73,7 +73,7 @@ const get_posts_by_tags = () => {
                     no_more_posts_div_tags.classList.remove("d-none")
                     if (response.size == 0) {
                         no_more_posts_div_tags.classList.add("zero-no-more-posts")
-                        footer_id.classList.add("stick-footer-bottom")
+                        // footer_id.classList.add("stick-footer-bottom")
 
                     }
 

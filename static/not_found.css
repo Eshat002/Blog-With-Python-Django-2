@@ -4,6 +4,10 @@
     padding-bottom: 50px;
 }
 
+.not-found {
+    min-height: 720px;
+}
+
 ._404 {
     color: #00AAA1;
     text-align: center;

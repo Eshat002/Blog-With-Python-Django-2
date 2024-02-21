@@ -2,6 +2,10 @@
     width: 85%;
 }
 
+.posts-by-categories {
+    min-height: 720px;
+}
+
 .zero-no-more-posts {
     margin-top: 150px !important;
     margin-bottom: 150px !important;
@@ -11,6 +15,7 @@
 .post-category-posts-by-category {
     margin-top: 3px
 }
+
 
 
 /* css media query */

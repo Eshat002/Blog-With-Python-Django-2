@@ -2,6 +2,10 @@
     width: 85%;
 }
 
+.posts-by-tags {
+    min-height: 720px;
+}
+
 .zero-no-more-posts {
     margin-top: 150px !important;
     margin-bottom: 150px !important;
