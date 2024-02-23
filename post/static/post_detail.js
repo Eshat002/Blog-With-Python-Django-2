@@ -143,6 +143,7 @@ function changeSocialShareButton() {
     var copyToClipBoard = document.querySelector('.share-on-social-media .copy-this button');
     var sendViaMail = document.querySelector('.share-on-social-media .mail-this a');
 
+
     TwitterAnchor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
         <circle cx="10.834" cy="10" r="10" fill="#00AAA1" />
         <path
@@ -173,8 +174,9 @@ function changeSocialShareButton() {
 
 }
 
-changeSocialShareButton()
 
+
+changeSocialShareButton()
 
 
 
